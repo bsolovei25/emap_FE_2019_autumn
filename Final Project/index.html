@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+	<title>Multicultural restourant</title>
+	<meta charset="utf-8">
+	<link href = "style.css" rel = "stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+</head>
+
+
+<body>
+	<div class = "title">
+		<div class = "image">
+		<img src = "img/full_star.jpg">
+		</div>
+		<div class="navbar">
+			<a href="#home">Home</a>
+			<div class="subnav">
+			<button class="subnavbtn">Monday <i class="fa fa-caret-down"></i></button>
+				<div class="subnav-content">
+					<a id = "MondayUkraine" onclick = "show_MondayUkraine()" href="#">Ukraine</a>
+					<a href="#team">Team</a>
+					<a href="#careers">Careers</a>
+				</div>
+			</div> 
+			<div class="subnav">
+			<button class="subnavbtn">Tuesday <i class="fa fa-caret-down"></i></button>
+				<div class="subnav-content">
+					<a id = "TuesdayUkraine" onclick = "show_TuesdayUkraine()" href="#">Ukraine</a>
+					<a href="#deliver">Deliver</a>
+					<a href="#package">Package</a>
+					<a href="#express">Express</a>
+				</div>
+			</div> 
+			<div class="subnav">
+				<button  class="subnavbtn">Wednesday <i class="fa fa-caret-down"></i></button>
+				<div class="subnav-content">
+					<a id = "WednesdayUkraine" onclick = "show_WednesdayUkraine()" href="#">Ukraine</a>
+					<a href="#link2">Link 2</a>
+					<a href="#link3">Link 3</a>
+					<a href="#link4">Link 4</a>
+				</div>
+			</div>
+			<a href="#contact">Contact</a>
+			
+			
+		</div>
+			<div class = "order">
+				<div class = "order-left">
+					<div class = "order-img">
+						<p id = "counterPlus">0</p>
+						<i class="fa fa-shopping-basket" style="font-size:24px"></i>
+					</div>
+				</div>
+				<div class = "order-right">
+					<button onclick="generate_table()" >Заказать!!!</button>
+				</div>
+			</div>
+		</div>
+		<div class = "core">
+		<input type = "radio" id = "switch1" name = "in">
+		<input type = "radio" id = "switch2" name = "in">
+		<input type = "radio" id = "switch3" name = "in">
+		<input type = "radio" id = "switch4" name = "in">
+		<input type = "radio" id = "switch5" name = "in">
+		<div class = "slider">
+			<label for="switch1"><img src="img/1.jpg" alt = '1'></article></label>
+			<label for="switch2"><img src="img/2.jpg" alt = '2'></label>
+			<label for="switch3"><img src="img/4.jpg" alt = '3'></label>
+			<label for="switch4"><img src="img/6.jpg" alt = '4'></label>
+			<label for="switch5"><img src="img/7.jpg" alt = '5'></label>
+		</div>
+		<div class = "image-tabs">
+			<div class = "picpack">
+					<div class = "block1">
+						<div class = "img1">
+							<img id = "im1" src = "img/ko1.jpg">
+						</div>
+						<div id = "mi1" class = "minorblock">
+							<div class = "text">
+								<p id = "productname1">BLablablalba1</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice1">176.21</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko1" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class = "block2">
+						<div class = "img2">
+							<img id = "im2" src = "img/ko2.jpg">
+						</div>
+						<div id = "mi2" class = "minorblock">
+							<div class = "text">
+								<p id = "productname2">BLablablalba2</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice2">276.21</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko2" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+				
+					<div class = "block3">
+						<div class = "img3">
+							<img id = "im3" src = "img/ko3.jpg">
+						</div>
+						<div id = "mi3" class = "minorblock">
+							<div class = "text">
+								<p id = "productname3">BLablablalba3</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice3">376.21</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko3" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class = "block4">
+						<div class = "img4">
+							<img id = "im4" src = "img/ko4.jpg">
+						</div>
+						<div id = "mi4" class = "minorblock">
+							<div class = "text">
+								<p id = "productname4">BLablablalba4</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice4">476.21</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko4" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+			
+					<div class = "block5">
+						<div class = "img5">
+							<img id = "im5" src = "img/ko5.jpg">
+						</div>
+						<div id = "mi5" class = "minorblock">
+							<div class = "text">
+								<p id = "productname5">BLablablalba5</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice5">576.21</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko5" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class = "block6">
+						<div class = "img6">
+							<img id = "im6" src = "img/ko6.jpg">
+						</div>
+						<div id = "mi6" class = "minorblock">
+							<div class = "text">
+								<p id = "productname6">BLablablalba6</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice6">676.21</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko6" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+			</div>
+		</div>
+		</div>
+	
+	
+    <script src="javascript.js"></script>
+</body>
+</html>

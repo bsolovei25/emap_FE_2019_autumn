@@ -1,0 +1,147 @@
+.title{
+	width:100%;
+	background-color:black;
+	height:60px;
+}
+
+.title{
+	display:flex;
+	flex-direction:row;
+	justify-content: space-between;
+}
+
+.image img{
+	height:60px;
+	width:60px;
+	margin-left:40px;
+}
+
+.navbar{
+	display:flex;
+	flex-direction:row;
+}
+
+.subnav{
+	padding-left:45px;
+}
+
+.navbar a{
+	padding-left:25px;
+}
+
+.subnav-content{
+	background-color:red;
+}
+
+.order-right button{
+	margin-top: 20px;
+}
+
+.order-left{
+	margin-right: 30px;
+}
+
+
+
+
+
+.core input{
+	position:relative;
+	z-index:2;
+	left:300px;
+	top:300px;
+}
+
+.core .slider{
+	max-height: 506px;
+    max-width: 1320px;
+	padding:100px;
+}
+
+.core {
+	display:flex;
+	flex-direction:column;
+}
+
+.navbar a:hover,subnav:hover .subnavbtn{
+	background-color:red;
+}
+
+.subnav:hover .subnav-content{
+	display:block;
+}
+
+.img1 img,.img2 img,.img3 img,.img4 img,.img5 img,.img6 img{
+	float:left;
+	padding-left:50px;
+	display:none;
+}
+
+.minorblock{
+	display:none;
+}
+
+.minorblock{
+	margin-left:50px;
+}
+
+.priceconfirm{
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+}
+
+.img3,.img4,.img5,.img6{
+	
+}
+
+.subnav-content{
+	display:none;
+}
+
+.img1 img{
+	height:200px;
+	width:300px;
+	
+}
+
+
+.image-tabs{
+
+}
+
+.picpack{
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+	float:left;
+}
+
+.order{
+	display:flex;
+	flex-direction:row;
+}
+
+.order-left{
+	display:flex;
+	flex-direction:column;
+}
+
+.order-img{
+	display:flex;
+	flex-direction:row;
+}
+
+.order-img i,.order-img p{
+	color:white;
+	z-index:2;
+}
+
+.order-img i{
+	margin-top:10px;
+	margin-left:5px;
+}
+
+
+
+/*#switch1:checked ~ .slider label[for = ""]*/
