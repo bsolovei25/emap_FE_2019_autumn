@@ -19,27 +19,55 @@
 			<div class="subnav">
 			<button class="subnavbtn">Monday <i class="fa fa-caret-down"></i></button>
 				<div class="subnav-content">
-					<a id = "MondayUkraine" onclick = "show_MondayUkraine()" href="#">Ukraine</a>
-					<a href="#team">Team</a>
-					<a href="#careers">Careers</a>
+					<a id = "MondayItaly" onclick = "show_Monday('Italy')" href="#">Italy</a>
+					<a id = "MondayJapan" onclick = "show_Monday('Japan')" href="#">Japan</a>
 				</div>
 			</div> 
 			<div class="subnav">
 			<button class="subnavbtn">Tuesday <i class="fa fa-caret-down"></i></button>
-				<div class="subnav-content">
-					<a id = "TuesdayUkraine" onclick = "show_TuesdayUkraine()" href="#">Ukraine</a>
-					<a href="#deliver">Deliver</a>
-					<a href="#package">Package</a>
-					<a href="#express">Express</a>
+				<div class="subnav-content">					
+					<a id = "TuesdayItaly" onclick = "show_Tuesday('Italy')" href="#">Italy</a>
+					<a id = "TuesdayJapan" onclick = "show_Tuesday('Japan')" href="#">Japan</a>
+					
 				</div>
 			</div> 
 			<div class="subnav">
 				<button  class="subnavbtn">Wednesday <i class="fa fa-caret-down"></i></button>
+				<div class="subnav-content">					
+					<a id = "WednesdayItaly" onclick = "show_Wednesday('Italy')" href="#">Italy</a>
+					<a id = "WednesdayJapan" onclick = "show_Wednesday('Japan')" href="#">Japan</a>
+					
+				</div>
+			</div>
+			<div class="subnav">
+			<button class="subnavbtn">Thursday <i class="fa fa-caret-down"></i></button>
 				<div class="subnav-content">
-					<a id = "WednesdayUkraine" onclick = "show_WednesdayUkraine()" href="#">Ukraine</a>
-					<a href="#link2">Link 2</a>
-					<a href="#link3">Link 3</a>
-					<a href="#link4">Link 4</a>
+					<a id = "ThursdayItaly" onclick = "show_Monday('Italy')" href="#">Italy</a>
+					<a id = "ThursdayJapan" onclick = "show_Monday('Japan')" href="#">Japan</a>
+				</div>
+			</div> 
+			<div class="subnav">
+			<button class="subnavbtn">Friday <i class="fa fa-caret-down"></i></button>
+				<div class="subnav-content">					
+					<a id = "FridayItaly" onclick = "show_Tuesday('Italy')" href="#">Italy</a>
+					<a id = "FridayJapan" onclick = "show_Tuesday('Japan')" href="#">Japan</a>
+					
+				</div>
+			</div> 
+			<div class="subnav">
+				<button  class="subnavbtn">Saturday <i class="fa fa-caret-down"></i></button>
+				<div class="subnav-content">					
+					<a id = "SaturdayItaly" onclick = "show_Wednesday('Italy')" href="#">Italy</a>
+					<a id = "SaturdayJapan" onclick = "show_Wednesday('Japan')" href="#">Japan</a>
+					
+				</div>
+			</div>
+			<div class="subnav">
+				<button  class="subnavbtn">Sunday <i class="fa fa-caret-down"></i></button>
+				<div class="subnav-content">					
+					<a id = "SundayItaly" onclick = "show_Wednesday('Italy')" href="#">Italy</a>
+					<a id = "SundayJapan" onclick = "show_Wednesday('Japan')" href="#">Japan</a>
+					
 				</div>
 			</div>
 			<a href="#contact">Contact</a>
@@ -54,11 +82,11 @@
 					</div>
 				</div>
 				<div class = "order-right">
-					<button onclick="generate_table()" >Заказать!!!</button>
+					<button id = "bookButton"onclick="generate_table()" >Заказать!!!</button>
 				</div>
 			</div>
 		</div>
-		<div class = "core">
+		<div id = "coreid" class = "core">
 		<input type = "radio" id = "switch1" name = "in">
 		<input type = "radio" id = "switch2" name = "in">
 		<input type = "radio" id = "switch3" name = "in">
@@ -73,17 +101,19 @@
 		</div>
 		<div class = "image-tabs">
 			<div class = "picpack">
-					<div class = "block1">
+					<div id = "idblock1" class = "block1">
 						<div class = "img1">
-							<img id = "im1" src = "img/ko1.jpg">
+							<img id = "im1" src = "Picture/img6.png">
 						</div>
 						<div id = "mi1" class = "minorblock">
 							<div class = "text">
-								<p id = "productname1">BLablablalba1</p>
+								<p id = "productname1">Лазанья Болоньезе</p>
+								<p id = "productname1_2">220 грамм,Лазанья с мясным соусом Болоньезе, сыром моцарелла и пармезан</p>
+								
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice1">176.21</h3>
+									<h3 id = "orderprice1">118</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko1" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -91,17 +121,18 @@
 							</div>
 						</div>
 					</div>
-					<div class = "block2">
+					<div id = "idblock2" class = "block2">
 						<div class = "img2">
-							<img id = "im2" src = "img/ko2.jpg">
+							<img id = "im2" src = "Picture/img11.png">
 						</div>
 						<div id = "mi2" class = "minorblock">
 							<div class = "text">
-								<p id = "productname2">BLablablalba2</p>
+								<p id = "productname2">Паровой лосось в имбирно-чесночном соусе</p>
+								<p id = "productname2_2">140/140 грамм,Паровой лосось, подается на подушке из шпината и лука-порея</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice2">276.21</h3>
+									<h3 id = "orderprice2">298</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko2" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -111,7 +142,7 @@
 					</div>
 				
 				
-					<div class = "block3">
+					<div id = "idblock3" class = "block3">
 						<div class = "img3">
 							<img id = "im3" src = "img/ko3.jpg">
 						</div>
@@ -129,7 +160,7 @@
 							</div>
 						</div>
 					</div>
-					<div class = "block4">
+					<div id = "idblock4" class = "block4">
 						<div class = "img4">
 							<img id = "im4" src = "img/ko4.jpg">
 						</div>
@@ -149,7 +180,7 @@
 					</div>
 				
 			
-					<div class = "block5">
+					<div id = "idblock5" class = "block5">
 						<div class = "img5">
 							<img id = "im5" src = "img/ko5.jpg">
 						</div>
@@ -167,7 +198,7 @@
 							</div>
 						</div>
 					</div>
-					<div class = "block6">
+					<div id = "idblock6" class = "block6">
 						<div class = "img6">
 							<img id = "im6" src = "img/ko6.jpg">
 						</div>
@@ -185,9 +216,143 @@
 							</div>
 						</div>
 					</div>
+					<div id = "idblock7" class = "block7">
+						<div class = "img7">
+							<img id = "im7" src = "Picture/img12.png">
+						</div>
+						<div id = "mi7" class = "minorblock">
+							<div class = "text">
+								<p id = "productname7">Нигири с лососем</p>
+								<p id = "productname7_2">2шт,50г</p>
+								
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice7">50</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko7" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id = "idblock8" class = "block8">
+						<div class = "img8">
+							<img id = "im8" src = "Picture/img13.png">
+						</div>
+						<div id = "mi8" class = "minorblock">
+							<div class = "text">
+								<p id = "productname8">Нигири с угрем</p>
+								<p id = "productname8_2">2шт,50г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice8">50</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko8" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				
+				
+					<div id = "idblock9" class = "block9">
+						<div class = "img9">
+							<img id = "im9" src = "Picture/img14.png">
+						</div>
+						<div id = "mi9" class = "minorblock">
+							<div class = "text">
+								<p id = "productname9">Сет "Филаделфия"</p>
+								<p id = "productname9_2">850г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice9">400</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko9" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id = "idblock10" class = "block10">
+						<div class = "img10">
+							<img id = "im10" src = "Picture/img15.png">
+						</div>
+						<div id = "mi10" class = "minorblock">
+							<div class = "text">
+								<p id = "productname10">Сет "Ассорти"</p>
+								<p id = "productname10_2">760г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice10">300</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko10" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+			
+					<div id = "idblock11" class = "block11">
+						<div class = "img11">
+							<img id = "im11" src = "Picture/img16.png">
+						</div>
+						<div id = "mi11" class = "minorblock">
+							<div class = "text">
+								<p id = "productname11">Сет "Унаги Урамаки"</p>
+								<p id = "productname11_2">700г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice11">365</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko11" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id = "idblock12" class = "block12">
+						<div class = "img12">
+							<img id = "im12" src = "Picture/img17.png">
+						</div>
+						<div id = "mi6" class = "minorblock">
+							<div class = "text">
+								<p id = "productname12">Филадельфия VIP</p>
+								<p id = "productname12_2">1600г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice12">799</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko12" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
 			</div>
 		</div>
+		
+		
+		
+		</div>
+		<div id = "regbarid" class = "regbar">
+			<div class = "initials">
+			<form action="" method="post" id="cusCreate" autocomplete="off">
+				<input type = "text" id = "regbar-name" placeholder = "Имя" pattern="^[A-Za-zÀ-ÿ ,.'-]+$" required>
+				<input type = "text" id = "regbar-address" placeholder = "Адрес">
+				<input type = "tel" id = "rtelephone" placeholder = "Телефон" maxlength="30"  title="+(380)XXXXXXX" pattern="^[+]*[(][3]*[8]*[0][)]{0,1}[-\s\./0-9]*$" required>
+				<input type = "submit" id = "regbar-submit" value = "Купить"></input>
+				</form>
+			</div>
+			<!--<div class = "regbar-button">
+				
+			</div>-->
 		</div>
 	
 	
