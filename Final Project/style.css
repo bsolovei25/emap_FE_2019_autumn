@@ -74,6 +74,10 @@
 .img1 img,.img2 img,.img3 img,.img4 img,.img5 img,.img6 img{
 	float:left;
 	padding-left:50px;
+	
+}
+
+#idblock1,#idblock2,#idblock3,#idblock4,#idblock5,#idblock6,#idblock7,#idblock8,#idblock9,#idblock10,#idblock11,#idblock12{
 	display:none;
 }
 
@@ -99,12 +103,17 @@
 	display:none;
 }
 
-.img1 img{
+/*.img1 img{
 	height:200px;
 	width:300px;
 	
-}
+}*/
 
+.block1,.block2,.block3,.block4,.block5,.block6{
+	display:flex;
+	flex-direction:column;
+	width:350px;
+}
 
 .image-tabs{
 
@@ -142,6 +151,28 @@
 	margin-left:5px;
 }
 
+.regbar{
+	display:flex;
+	flex-direction:column;
+	max-width:1000px;
+	display:none;
+}
 
+.initials{
+	display:flex;
+	justify-content:space-between;
+}
+
+.regbar-button{
+	margin:0 auto;
+}
+
+#rtelephone:invalid,#regbar-name:invalid{
+	background-color:red;
+}
+
+#rtelephone:valid,#regbar-name:valid{
+	background-color:green;
+}
 
 /*#switch1:checked ~ .slider label[for = ""]*/
