@@ -1,19 +1,15 @@
 
-var submitprice1 = document.getElementById('subko1');
-var submitprice2 = document.getElementById('subko2');
-var submitprice3 = document.getElementById('subko3');
-var submitprice4 = document.getElementById('subko4');
-var submitprice5 = document.getElementById('subko5');
-var submitprice6 = document.getElementById('subko6');
+
 var countGoods = document.getElementById('counterPlus');
 
 var arrimg = [];
 var arrtext = [];
-var num = 6;
+var num = 12;
 
 var arrayOfButtons = [];
 var arrayOfPrices = [];
 var arrayOfNames = [];
+
 
 
 for (let i =1;i < num+1;i++){
@@ -28,16 +24,27 @@ for (let i =1;i < num+1;i++){
 	arrayOfNames.push((document.getElementById('productname'+i)).innerHTML);
 }
 
+
+
 for (let i =1;i < num+1;i++){
-	arrimg.push(document.getElementById('im'+i));
+	arrimg.push(document.getElementById('idblock'+i));
 }
 
 for (let i =1;i < num+1;i++){
 	arrtext.push(document.getElementById('mi'+i));
 }
 
-function show_MondayUkraine(){
-	let arr = ["block","block","none","none","none","none"];
+function show_Monday(country){
+	
+	document.getElementById("coreid").style.display = "block";
+	RemoveTable();
+	InVisible();
+	let arr = [];
+	if(country == "Italy"){
+	arr = ["block","block","none","none","none","none","none","none","none","none","none","none"];
+	}else{
+		arr = ["none","none","none","none","none","none","block","block","none","none","none","none"];
+	}
 	for (let i =0;i < num;i++){
 		arrimg[i].style.display = arr[i];
 		arrtext[i].style.display =arr[i];
@@ -45,16 +52,32 @@ function show_MondayUkraine(){
 }
 
 
-function show_TuesdayUkraine(){
-	let arr = ["none","none","block","block","none","none"];
+function show_Tuesday(country){
+	document.getElementById("coreid").style.display = "block";
+	RemoveTable();
+	InVisible();
+	let arr = [];
+	if(country == "Italy"){
+	arr = ["none","none","block","block","none","none","none","none","none","none","none","none"];
+	}else{
+		arr = ["none","none","none","none","none","none","none","none","block","block","none","none"];
+	}
 	for (let i =0;i < num;i++){
 		arrimg[i].style.display = arr[i];
 		arrtext[i].style.display = arr[i];
 	}
 }
 
-function show_WednesdayUkraine(){
-	let arr = ["none","none","none","none","block","block"];
+function show_Wednesday(country){
+	document.getElementById("coreid").style.display = "block";
+	RemoveTable();
+	InVisible();
+	let arr = [];
+	if(country == "Italy"){
+	arr = ["none","none","none","none","block","block","none","none","none","none","none","none"];
+	}else{
+		arr = ["none","none","none","none","none","none","none","none","none","none","block","block"];
+	}
 	for (let i =0;i < num;i++){
 		arrimg[i].style.display = arr[i];
 		arrtext[i].style.display = arr[i];
@@ -74,17 +97,43 @@ class Order{
 class Basket{
 	constructor(){
 		this.arr = [];
+		this.totalPrice = 0;
 	}
 	addValue(value){
 		this.arr.push(value);
+		this.totalPrice += parseFloat(value.price);
 	}
 }
 var BasketObject = new Basket();
 
-submitprice1.addEventListener("click",function(){
-	//let price = document.getElementById("orderprice1").value;
-	//le
-})
+
+
+function InVisible(){
+	let div = document.getElementById("regbarid");
+	
+		div.style.visibility = "hidden";
+	
+}
+
+function Visible(){
+	let div = document.getElementById("regbarid");
+	
+		div.style.visibility = "visible";
+	
+}
+
+function RemoveTable(){
+	let body = document.getElementsByTagName("body")[0];
+	let table = document.getElementById("table1");
+	let div = document.getElementById("div1");
+	
+	if(table != null){
+		body.removeChild(table);
+	}
+	if(div != null){
+		body.removeChild(div);
+	}
+}
 
 function SubmitButtonPressed(idValue){
 	let Id = idValue;
@@ -96,40 +145,44 @@ function SubmitButtonPressed(idValue){
 }
 
 
+
+
 function generate_table() {
-	let collen = 3;
-  // get the reference for the body
-  var body = document.getElementsByTagName("body")[0];
-
-  // creates a <table> element and a <tbody> element
-  var tbl = document.createElement("table");
-  var tblBody = document.createElement("tbody");
-
-  // creating all cells
-  for (var i = 0; i < BasketObject.arr.length; i++) {
-    // creates a table row
-    var row = document.createElement("tr");
-      // Create a <td> element and a text node, make the text
-      // node the contents of the <td>, and put the <td> at
-      // the end of the table row
-      var cell = document.createElement("td");
-      var cellText = document.createTextNode(BasketObject.arr[i].name);
-	  var cell1 = document.createElement("td");
-      var cellText1 = document.createTextNode(BasketObject.arr[i].price);
-      cell.appendChild(cellText);
-      row.appendChild(cell);
-	  cell1.appendChild(cellText1);
-      row.appendChild(cell1);
-
-    // add the row to the end of the table body
-    tblBody.appendChild(row);
-  }
-
-  // put the <tbody> in the <table>
-  tbl.appendChild(tblBody);
-  // appends <table> into <body>
-  body.appendChild(tbl);
-  // sets the border attribute of tbl to 2;
-  tbl.setAttribute("border", "2");
+	RemoveTable();
+	Visible();
+	var body = document.getElementsByTagName("body")[0];
+	var tbl = document.createElement("table");
+	tbl.id = "table1";
+	var tblBody = document.createElement("tbody");
+	for (var i = 0; i < BasketObject.arr.length; i++) {
+		var row = document.createElement("tr");
+		var cell = document.createElement("td");
+		var cellText = document.createTextNode(BasketObject.arr[i].name);
+		var cell1 = document.createElement("td");
+		var cellText1 = document.createTextNode(BasketObject.arr[i].price);
+		cell.appendChild(cellText);
+		row.appendChild(cell);
+		cell1.appendChild(cellText1);
+		row.appendChild(cell1);
+		var cell2 = document.createElement("td");
+		var checkbox = document.createElement("input");
+		checkbox.type = "checkbox";
+		checkbox.checked = true;
+		cell2.appendChild(checkbox);
+		row.appendChild(cell2);
+		tblBody.appendChild(row);
+	}
+	tbl.appendChild(tblBody);
+	body.appendChild(tbl);
+	var div = document.createElement("div");
+	div.id = "div1";
+	var p = document.createElement("p");
+	var cellText = document.createTextNode("Total price to insert = " + BasketObject.totalPrice);
+	p.appendChild(cellText);
+	div.appendChild(p);
+	body.appendChild(div); 
+	tbl.setAttribute("border", "2");
+	document.getElementById("coreid").style.display = "none";
+	document.getElementById("regbarid").style.display = "block";
 }
 
