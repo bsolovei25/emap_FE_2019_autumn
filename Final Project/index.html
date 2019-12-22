@@ -42,34 +42,35 @@
 			<div class="subnav">
 			<button class="subnavbtn">Thursday <i class="fa fa-caret-down"></i></button>
 				<div class="subnav-content">
-					<a id = "ThursdayItaly" onclick = "show_Monday('Italy')" href="#">Italy</a>
-					<a id = "ThursdayJapan" onclick = "show_Monday('Japan')" href="#">Japan</a>
+					<a id = "ThursdayItaly" onclick = "show_Thursday('Italy')" href="#">Italy</a>
+					<a id = "ThursdayJapan" onclick = "show_Thursday('Japan')" href="#">Japan</a>
 				</div>
 			</div> 
 			<div class="subnav">
 			<button class="subnavbtn">Friday <i class="fa fa-caret-down"></i></button>
 				<div class="subnav-content">					
-					<a id = "FridayItaly" onclick = "show_Tuesday('Italy')" href="#">Italy</a>
-					<a id = "FridayJapan" onclick = "show_Tuesday('Japan')" href="#">Japan</a>
+					<a id = "FridayItaly" onclick = "show_Friday('Italy')" href="#">Italy</a>
+					<a id = "FridayJapan" onclick = "show_Friday('Japan')" href="#">Japan</a>
 					
 				</div>
 			</div> 
 			<div class="subnav">
 				<button  class="subnavbtn">Saturday <i class="fa fa-caret-down"></i></button>
 				<div class="subnav-content">					
-					<a id = "SaturdayItaly" onclick = "show_Wednesday('Italy')" href="#">Italy</a>
-					<a id = "SaturdayJapan" onclick = "show_Wednesday('Japan')" href="#">Japan</a>
+					<a id = "SaturdayItaly" onclick = "show_Saturday('Italy')" href="#">Italy</a>
+					<a id = "SaturdayJapan" onclick = "show_Saturday('Japan')" href="#">Japan</a>
 					
 				</div>
 			</div>
 			<div class="subnav">
 				<button  class="subnavbtn">Sunday <i class="fa fa-caret-down"></i></button>
 				<div class="subnav-content">					
-					<a id = "SundayItaly" onclick = "show_Wednesday('Italy')" href="#">Italy</a>
-					<a id = "SundayJapan" onclick = "show_Wednesday('Japan')" href="#">Japan</a>
+					<a id = "SundayItaly" onclick = "show_Sunday('Italy')" href="#">Italy</a>
+					<a id = "SundayJapan" onclick = "show_Sunday('Japan')" href="#">Japan</a>
 					
 				</div>
 			</div>
+			
 			<a href="#contact">Contact</a>
 			
 			
@@ -82,22 +83,24 @@
 					</div>
 				</div>
 				<div class = "order-right">
-					<button id = "bookButton"onclick="generate_table()" >Заказать!!!</button>
+					<button id = "bookButton" onclick="generate_table()" >Заказать!!!</button>
 				</div>
 			</div>
 		</div>
 		<div id = "coreid" class = "core">
+		<div class="coreinputs">
 		<input type = "radio" id = "switch1" name = "in">
 		<input type = "radio" id = "switch2" name = "in">
 		<input type = "radio" id = "switch3" name = "in">
 		<input type = "radio" id = "switch4" name = "in">
 		<input type = "radio" id = "switch5" name = "in">
-		<div class = "slider">
-			<label for="switch1"><img src="img/1.jpg" alt = '1'></article></label>
-			<label for="switch2"><img src="img/2.jpg" alt = '2'></label>
-			<label for="switch3"><img src="img/4.jpg" alt = '3'></label>
-			<label for="switch4"><img src="img/6.jpg" alt = '4'></label>
-			<label for="switch5"><img src="img/7.jpg" alt = '5'></label>
+		</div>
+		<div id = "idslider" class = "slider">
+			<label for="switch1"><img id = "im1switch1" src="img/1Dominos.jpg" alt = '1'></label>
+			<label for="switch2"><img id = "im2switch2" src="img/2Dominos.jpg" alt = '2'></label>
+			<label for="switch3"><img id = "im3switch3" src="img/3Dominos.jpg" alt = '3'></label>
+			<label for="switch4"><img id = "im4switch4" src="img/4Dominos.jpg" alt = '4'></label>
+			<label for="switch5"><img id = "im5switch5" src="img/1Dominos.jpg" alt = '5'></label>
 		</div>
 		<div class = "image-tabs">
 			<div class = "picpack">
@@ -107,13 +110,15 @@
 						</div>
 						<div id = "mi1" class = "minorblock">
 							<div class = "text">
-								<p id = "productname1">Лазанья Болоньезе</p>
+								<h3 id = "productname1">Лазанья Болоньезе</h3>
 								<p id = "productname1_2">220 грамм,Лазанья с мясным соусом Болоньезе, сыром моцарелла и пармезан</p>
+								
 								
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice1">118</h3>
+									<h3 id = "orderprice1">118грн</h3>
+									
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko1" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -132,7 +137,7 @@
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice2">298</h3>
+									<h3 id = "orderprice2">298грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko2" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -152,7 +157,7 @@
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice3">376.21</h3>
+									<h3 id = "orderprice3">376.21грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko3" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -170,7 +175,7 @@
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice4">476.21</h3>
+									<h3 id = "orderprice4">476.21грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko4" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -190,7 +195,7 @@
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice5">576.21</h3>
+									<h3 id = "orderprice5">576.21грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko5" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -208,7 +213,7 @@
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice6">676.21</h3>
+									<h3 id = "orderprice6">676.21грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko6" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -228,7 +233,7 @@
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice7">50</h3>
+									<h3 id = "orderprice7">50грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko7" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -247,7 +252,7 @@
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice8">50</h3>
+									<h3 id = "orderprice8">50грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko8" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -268,7 +273,7 @@
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice9">400</h3>
+									<h3 id = "orderprice9">400грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko9" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -287,7 +292,7 @@
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice10">300</h3>
+									<h3 id = "orderprice10">300грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko10" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -308,7 +313,7 @@
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice11">365</h3>
+									<h3 id = "orderprice11">365грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko11" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -320,17 +325,321 @@
 						<div class = "img12">
 							<img id = "im12" src = "Picture/img17.png">
 						</div>
-						<div id = "mi6" class = "minorblock">
+						<div id = "mi12" class = "minorblock">
 							<div class = "text">
 								<p id = "productname12">Филадельфия VIP</p>
 								<p id = "productname12_2">1600г</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice12">799</h3>
+									<h3 id = "orderprice12">799грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko12" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id = "idblock13" class = "block13">
+						<div class = "img13">
+							<img id = "im13" src = "Picture/img18.png">
+						</div>
+						<div id = "mi13" class = "minorblock">
+							<div class = "text">
+								<p id = "productname13">Филадельфия VIP</p>
+								<p id = "productname13_2">1600г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice13">799грн</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko13" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id = "idblock14" class = "block14">
+						<div class = "img14">
+							<img id = "im14" src = "Picture/img19.png">
+						</div>
+						<div id = "mi14" class = "minorblock">
+							<div class = "text">
+								<p id = "productname14">Филадельфия VIP</p>
+								<p id = "productname14_2">1600г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice14">799грн</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko14" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id = "idblock15" class = "block15">
+						<div class = "img15">
+							<img id = "im15" src = "Picture/img20.png">
+						</div>
+						<div id = "mi15" class = "minorblock">
+							<div class = "text">
+								<p id = "productname15">Филадельфия VIP</p>
+								<p id = "productname15_2">1600г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice15">799грн</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko15" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id = "idblock16" class = "block16">
+						<div class = "img16">
+							<img id = "im16" src = "Picture/img21.png">
+						</div>
+						<div id = "mi16" class = "minorblock">
+							<div class = "text">
+								<p id = "productname16">Филадельфия VIP</p>
+								<p id = "productname16_2">1600г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice16">799грн</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko16" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id = "idblock17" class = "block17">
+						<div class = "img17">
+							<img id = "im17" src = "Picture/img22.png">
+						</div>
+						<div id = "mi17" class = "minorblock">
+							<div class = "text">
+								<p id = "productname17">Филадельфия VIP</p>
+								<p id = "productname17_2">1600г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice17">799грн</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko17" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id = "idblock18" class = "block18">
+						<div class = "img18">
+							<img id = "im18" src = "Picture/img23.png">
+						</div>
+						<div id = "mi18" class = "minorblock">
+							<div class = "text">
+								<p id = "productname18">Филадельфия VIP</p>
+								<p id = "productname18_2">1600г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice18">799грн</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko18" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id = "idblock19" class = "block19">
+						<div class = "img19">
+							<img id = "im19" src = "Picture/img24.png">
+						</div>
+						<div id = "mi19" class = "minorblock">
+							<div class = "text">
+								<p id = "productname19">Филадельфия VIP</p>
+								<p id = "productname19_2">1600г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice19">799грн</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko19" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id = "idblock20" class = "block20">
+						<div class = "img20">
+							<img id = "im20" src = "Picture/img25.png">
+						</div>
+						<div id = "mi20" class = "minorblock">
+							<div class = "text">
+								<p id = "productname20">Филадельфия VIP</p>
+								<p id = "productname20_2">1600г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice20">799грн</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko20" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+						</div>
+						<div id = "idblock21" class = "block21">
+						<div class = "img21">
+							<img id = "im21" src = "Picture/img26.png">
+						</div>
+						<div id = "mi21" class = "minorblock">
+							<div class = "text">
+								<p id = "productname21">Филадельфия VIP</p>
+								<p id = "productname21_2">1600г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice21">799грн</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko21" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id = "idblock22" class = "block22">
+						<div class = "img22">
+							<img id = "im22" src = "Picture/img27.png">
+						</div>
+						<div id = "mi22" class = "minorblock">
+							<div class = "text">
+								<p id = "productname22">Филадельфия VIP</p>
+								<p id = "productname22_2">1600г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice22">799грн</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko22" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id = "idblock23" class = "block23">
+						<div class = "img23">
+							<img id = "im23" src = "Picture/img28.png">
+						</div>
+						<div id = "mi23" class = "minorblock">
+							<div class = "text">
+								<p id = "productname23">Филадельфия VIP</p>
+								<p id = "productname23_2">1600г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice23">799грн</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko23" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id = "idblock24" class = "block24">
+						<div class = "img24">
+							<img id = "im24" src = "Picture/img29.png">
+						</div>
+						<div id = "mi24" class = "minorblock">
+							<div class = "text">
+								<p id = "productname24">Филадельфия VIP</p>
+								<p id = "productname24_2">1600г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice24">799грн</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko24" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id = "idblock25" class = "block25">
+						<div class = "img25">
+							<img id = "im25" src = "Picture/img30.png">
+						</div>
+						<div id = "mi25" class = "minorblock">
+							<div class = "text">
+								<p id = "productname25">Филадельфия VIP</p>
+								<p id = "productname25_2">1600г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice25">799грн</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko25" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id = "idblock26" class = "block26">
+						<div class = "img26">
+							<img id = "im26" src = "Picture/img31.png">
+						</div>
+						<div id = "mi26" class = "minorblock">
+							<div class = "text">
+								<p id = "productname26">Филадельфия VIP</p>
+								<p id = "productname26_2">1600г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice26">799грн</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko26" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id = "idblock27" class = "block27">
+						<div class = "img27">
+							<img id = "im27" src = "Picture/img32.png">
+						</div>
+						<div id = "mi27" class = "minorblock">
+							<div class = "text">
+								<p id = "productname27">Филадельфия VIP</p>
+								<p id = "productname27_2">1600г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice27">799грн</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko27" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id = "idblock28" class = "block28">
+						<div class = "img28">
+							<img id = "im28" src = "Picture/img33.png">
+						</div>
+						<div id = "mi28" class = "minorblock">
+							<div class = "text">
+								<p id = "productname28">Филадельфия VIP</p>
+								<p id = "productname28_2">1600г</p>
+							</div>
+							<div class = "priceconfirm">
+								<div class = "price">
+									<h3 id = "orderprice28">799грн</h3>
+								</div>
+								<div class = "submitbutton">
+									<button id = "subko28" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
 								</div>
 							</div>
 						</div>
@@ -341,13 +650,20 @@
 		
 		
 		</div>
+		<!--<div class="coreinputs">
+		<input type = "radio" id = "switch1" name = "in">
+		<input type = "radio" id = "switch2" name = "in">
+		<input type = "radio" id = "switch3" name = "in">
+		<input type = "radio" id = "switch4" name = "in">
+		<input type = "radio" id = "switch5" name = "in">
+		</div>-->
 		<div id = "regbarid" class = "regbar">
 			<div class = "initials">
 			<form action="" method="post" id="cusCreate" autocomplete="off">
-				<input type = "text" id = "regbar-name" placeholder = "Имя" pattern="^[A-Za-zÀ-ÿ ,.'-]+$" required>
-				<input type = "text" id = "regbar-address" placeholder = "Адрес">
-				<input type = "tel" id = "rtelephone" placeholder = "Телефон" maxlength="30"  title="+(380)XXXXXXX" pattern="^[+]*[(][3]*[8]*[0][)]{0,1}[-\s\./0-9]*$" required>
-				<input type = "submit" id = "regbar-submit" value = "Купить"></input>
+				<input type = "text" value = "aa" id = "regbar-name" placeholder = "Имя" pattern="^[A-Za-zÀ-ÿ ,.'-]+$" required>
+				<input type = "text" value = "aa" id = "regbar-address" placeholder = "Адрес">
+				<input type = "tel" value = "+(380)" id = "rtelephone" placeholder = "Телефон" maxlength="30"  title="+(380)XXXXXXX" pattern="^[+]*[(][3]*[8]*[0][)]{0,1}[-\s\./0-9]*$" required>
+				<input type = "submit" id = "regbar-submit" value = "Купить">
 				</form>
 			</div>
 			<!--<div class = "regbar-button">
