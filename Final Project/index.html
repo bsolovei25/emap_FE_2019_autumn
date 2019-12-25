@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<link href = "style.css" rel = "stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	
+
 </head>
 
 
@@ -15,7 +15,7 @@
 		<img src = "img/full_star.jpg">
 		</div>
 		<div class="navbar">
-			<a href="#home">Home</a>
+			<a href="#" onclick = "ReturnStartPage()">Home</a>
 			<div class="subnav">
 			<button class="subnavbtn">Monday <i class="fa fa-caret-down"></i></button>
 				<div class="subnav-content">
@@ -58,7 +58,7 @@
 				<button  class="subnavbtn">Saturday <i class="fa fa-caret-down"></i></button>
 				<div class="subnav-content">					
 					<a id = "SaturdayItaly" onclick = "show_Saturday('Italy')" href="#">Italy</a>
-					<a id = "SaturdayJapan" onclick = "show_Saturday('Japan')" href="#">Japan</a>
+					<a id = "SaturdayJapan" onclick = "show_Monday('Japan')" href="#">Japan</a>
 					
 				</div>
 			</div>
@@ -66,12 +66,12 @@
 				<button  class="subnavbtn">Sunday <i class="fa fa-caret-down"></i></button>
 				<div class="subnav-content">					
 					<a id = "SundayItaly" onclick = "show_Sunday('Italy')" href="#">Italy</a>
-					<a id = "SundayJapan" onclick = "show_Sunday('Japan')" href="#">Japan</a>
+					<a id = "SundayJapan" onclick = "show_Tuesday('Japan')" href="#">Japan</a>
 					
 				</div>
 			</div>
 			
-			<a href="#contact">Contact</a>
+			<a href="#" id = "contactButton" onclick="generate_info()">Contact</a>
 			
 			
 		</div>
@@ -89,7 +89,7 @@
 		</div>
 		<div id = "coreid" class = "core">
 		<div class="coreinputs">
-		<input type = "radio" id = "switch1" name = "in">
+		<input type = "radio" id = "switch1" name = "in" checked>
 		<input type = "radio" id = "switch2" name = "in">
 		<input type = "radio" id = "switch3" name = "in">
 		<input type = "radio" id = "switch4" name = "in">
@@ -102,23 +102,34 @@
 			<label for="switch4"><img id = "im4switch4" src="img/4Dominos.jpg" alt = '4'></label>
 			<label for="switch5"><img id = "im5switch5" src="img/1Dominos.jpg" alt = '5'></label>
 		</div>
-		<div class = "image-tabs">
+		
+		<div class = "choose-menu">
+				<ul>
+				<li class ="menu-pizza"><a id = "menu-pizzaid" onclick = "show_menu(this)" href = "#">Пицца</a></li>
+				<li class ="menu-rols"><a id = "menu-rolsid" onclick = "show_menu(this)" href = "#">Ролы</a></li>
+				<li class ="menu-sets"><a id = "menu-setsid" onclick = "show_menu(this)" href = "#">Сеты</a></li>
+				<li class ="menu-grill"><a id = "menu-grill" onclick = "show_menu(this)" href = "#">Гриль-меню</a></li>
+				<li class ="menu-lunch"><a id = "menu-lunch" onclick = "show_menu(this)" href = "#">Бизнес-ланч</a></li>
+				</ul>
+			</div>
+			<div class= "classcrumbs" id= "idcrumbs">
+			<h3 id = "crumbshome">Home</h3>
+		</div>
+		<div id = "idimage-tabs"class = "image-tabs">
 			<div class = "picpack">
+			<div class = "coldisplay">
 					<div id = "idblock1" class = "block1">
 						<div class = "img1">
-							<img id = "im1" src = "Picture/img6.png">
+							<img id = "im1" src = "Picture/img3.png">
 						</div>
 						<div id = "mi1" class = "minorblock">
 							<div class = "text">
-								<h3 id = "productname1">Лазанья Болоньезе</h3>
-								<p id = "productname1_2">220 грамм,Лазанья с мясным соусом Болоньезе, сыром моцарелла и пармезан</p>
-								
-								
+								<h3 id = "productname1">ПИЦЦА «БАВАРСКАЯ»</h3>
+								<p id = "productname1_2">910 грамм, Фирменный томатный соус, моцарелла, охотничьи колбаски, балык, шампиньоны свежие, помидоры, зелень петрушки</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice1">118грн</h3>
-									
+									<h3 id = "orderprice1">263грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko1" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -128,36 +139,35 @@
 					</div>
 					<div id = "idblock2" class = "block2">
 						<div class = "img2">
-							<img id = "im2" src = "Picture/img11.png">
+							<img id = "im2" src = "Picture/img34.png">
 						</div>
 						<div id = "mi2" class = "minorblock">
 							<div class = "text">
-								<p id = "productname2">Паровой лосось в имбирно-чесночном соусе</p>
-								<p id = "productname2_2">140/140 грамм,Паровой лосось, подается на подушке из шпината и лука-порея</p>
+								<h3 id = "productname2">Пицца "4 сыра"</h3>
+								<p id = "productname2_2">780 грамм, Сливочнй соус, сыр "Моцарелла", сыр "Дор Блю", сыр "Пармезан", сыр "Радомер"</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice2">298грн</h3>
+									<h3 id = "orderprice2">255грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko2" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
 								</div>
 							</div>
 						</div>
-					</div>
-				
-				
+					</div>				
 					<div id = "idblock3" class = "block3">
 						<div class = "img3">
-							<img id = "im3" src = "img/ko3.jpg">
+							<img id = "im3" src = "Picture/img1.png">
 						</div>
 						<div id = "mi3" class = "minorblock">
 							<div class = "text">
-								<p id = "productname3">BLablablalba3</p>
+								<h3 id = "productname3">ПИЦЦА "ПАЛЕРМО"</h3>
+								<p id = "productname3_2">860 грамм, Фирменный томатный соус, моцарелла, балык, шампиньоны свежие, бекон,салями итальянская, маслины, тимьян сушеный</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice3">376.21грн</h3>
+									<h3 id = "orderprice3">251грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko3" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -167,35 +177,40 @@
 					</div>
 					<div id = "idblock4" class = "block4">
 						<div class = "img4">
-							<img id = "im4" src = "img/ko4.jpg">
+							<img id = "im4" src = "Picture/img2.png">
 						</div>
 						<div id = "mi4" class = "minorblock">
 							<div class = "text">
-								<p id = "productname4">BLablablalba4</p>
+								<h3 id = "productname4">ПИЦЦА «ПОЛЛО АМЕРИКАНО»</h3>
+								<p id = "productname4_2">860 грамм, Фирменный томатный соус, моцарелла, запеченное куриное филе, бекон, маслины, перец пепперони</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice4">476.21грн</h3>
+									<h3 id = "orderprice4">239</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko4" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
 								</div>
 							</div>
 						</div>
-					</div>
-				
-			
+					</div>			
+				</div>
+				<div class = "coldisplay">
 					<div id = "idblock5" class = "block5">
 						<div class = "img5">
-							<img id = "im5" src = "img/ko5.jpg">
+							<img id = "im5" src = "Picture/img6.png">
 						</div>
 						<div id = "mi5" class = "minorblock">
 							<div class = "text">
-								<p id = "productname5">BLablablalba5</p>
+								<h3 id = "productname5">Лазанья Болоньезе</h3>
+								<p id = "productname5_2">220 грамм, Лазанья с мясным соусом Болоньезе, сыром моцарелла и пармезан</p>
+								
+								
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice5">576.21грн</h3>
+									<h3 id = "orderprice5">118грн</h3>
+									
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko5" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -203,17 +218,19 @@
 							</div>
 						</div>
 					</div>
+					
 					<div id = "idblock6" class = "block6">
 						<div class = "img6">
-							<img id = "im6" src = "img/ko6.jpg">
+							<img id = "im6" src = "Picture/img4.png">
 						</div>
 						<div id = "mi6" class = "minorblock">
-							<div class = "text">
-								<p id = "productname6">BLablablalba6</p>
+							<div class = "text">								
+								<h3 id = "productname6">ПИЦЦА "ЦЕЗАРЕ"</h3>
+								<p id = "productname6_2">800 грамм, Фирменный томатный соус, сыр "Моцарелла", сыр "Пармезан", бекон, запеченное куриное филе, соус "Цезаре", микс-салат</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice6">676.21грн</h3>
+									<h3 id = "orderprice6">243грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko6" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -227,13 +244,13 @@
 						</div>
 						<div id = "mi7" class = "minorblock">
 							<div class = "text">
-								<p id = "productname7">Нигири с лососем</p>
-								<p id = "productname7_2">2шт,50г</p>
+								<h3 id = "productname7">Филадельфия Де Люкс с тунцом и креветкой</3>
+								<p id = "productname7_2">6 кусочков/200 грамм</p>
 								
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice7">50грн</h3>
+									<h3 id = "orderprice7">159грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko7" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -247,12 +264,12 @@
 						</div>
 						<div id = "mi8" class = "minorblock">
 							<div class = "text">
-								<p id = "productname8">Нигири с угрем</p>
-								<p id = "productname8_2">2шт,50г</p>
+								<p id = "productname8">Филадельфия Де Люкс со свежим лососем</p>
+								<p id = "productname8_2">6 кусочков,230г</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice8">50грн</h3>
+									<h3 id = "orderprice8">144грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko8" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -260,20 +277,20 @@
 							</div>
 						</div>
 					</div>
-				
-				
+				</div>
+				<div class = "coldisplay">
 					<div id = "idblock9" class = "block9">
 						<div class = "img9">
 							<img id = "im9" src = "Picture/img14.png">
 						</div>
 						<div id = "mi9" class = "minorblock">
 							<div class = "text">
-								<p id = "productname9">Сет "Филаделфия"</p>
-								<p id = "productname9_2">850г</p>
+								<h3 id = "productname9">Теплый ролл с лососем Well Done</h3>
+								<p id = "productname9_2">8 кусочков/200г</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice9">400грн</h3>
+									<h3 id = "orderprice9">109грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko9" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -287,33 +304,31 @@
 						</div>
 						<div id = "mi10" class = "minorblock">
 							<div class = "text">
-								<p id = "productname10">Сет "Ассорти"</p>
-								<p id = "productname10_2">760г</p>
+								<p id = "productname10">Філадельфія Грін зі свіжим лососем</p>
+								<p id = "productname10_2">210г</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice10">300грн</h3>
+									<h3 id = "orderprice10">119грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko10" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
 								</div>
 							</div>
 						</div>
-					</div>
-				
-			
+					</div>			
 					<div id = "idblock11" class = "block11">
 						<div class = "img11">
 							<img id = "im11" src = "Picture/img16.png">
 						</div>
 						<div id = "mi11" class = "minorblock">
 							<div class = "text">
-								<p id = "productname11">Сет "Унаги Урамаки"</p>
-								<p id = "productname11_2">700г</p>
+								<p id = "productname11">Філадельфія в кунжуті зі свіжим лососем</p>
+								<p id = "productname11_2">6 шматочків/205г</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice11">365грн</h3>
+									<h3 id = "orderprice11">94грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko11" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -327,12 +342,12 @@
 						</div>
 						<div id = "mi12" class = "minorblock">
 							<div class = "text">
-								<p id = "productname12">Филадельфия VIP</p>
-								<p id = "productname12_2">1600г</p>
+								<p id = "productname12">Червоний Дракон</p>
+								<p id = "productname12_2">250г</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice12">799грн</h3>
+									<h3 id = "orderprice12">189грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko12" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -340,18 +355,20 @@
 							</div>
 						</div>
 					</div>
+					</div>
+					<div class = "coldisplay">
 					<div id = "idblock13" class = "block13">
 						<div class = "img13">
 							<img id = "im13" src = "Picture/img18.png">
 						</div>
 						<div id = "mi13" class = "minorblock">
 							<div class = "text">
-								<p id = "productname13">Филадельфия VIP</p>
-								<p id = "productname13_2">1600г</p>
+								<h3 id = "productname13">Набор Морской Max</h3>
+								<p id = "productname13_2">34 кусочков/950 г</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice13">799грн</h3>
+									<h3 id = "orderprice13">389грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko13" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -365,12 +382,12 @@
 						</div>
 						<div id = "mi14" class = "minorblock">
 							<div class = "text">
-								<p id = "productname14">Филадельфия VIP</p>
-								<p id = "productname14_2">1600г</p>
+								<h3 id = "productname14">Набор Филадельфия Middle</h3>
+								<p id = "productname14_2">760г</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice14">799грн</h3>
+									<h3 id = "orderprice14">479грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko14" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -384,12 +401,12 @@
 						</div>
 						<div id = "mi15" class = "minorblock">
 							<div class = "text">
-								<p id = "productname15">Филадельфия VIP</p>
-								<p id = "productname15_2">1600г</p>
+								<p id = "productname15">Набор Лососевый Микс</p>
+								<p id = "productname15_2">710г</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice15">799грн</h3>
+									<h3 id = "orderprice15">349грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko15" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -403,12 +420,12 @@
 						</div>
 						<div id = "mi16" class = "minorblock">
 							<div class = "text">
-								<p id = "productname16">Филадельфия VIP</p>
-								<p id = "productname16_2">1600г</p>
+								<p id = "productname16">Набор De Lux</p>
+								<p id = "productname16_2">990г</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice16">799грн</h3>
+									<h3 id = "orderprice16">649грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko16" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -416,18 +433,20 @@
 							</div>
 						</div>
 					</div>
+					</div>
+					<div class = "coldisplay">
 					<div id = "idblock17" class = "block17">
 						<div class = "img17">
-							<img id = "im17" src = "Picture/img22.png">
+							<img id = "im17" src = "Picture/img40.png">
 						</div>
 						<div id = "mi17" class = "minorblock">
 							<div class = "text">
-								<p id = "productname17">Филадельфия VIP</p>
-								<p id = "productname17_2">1600г</p>
+								<h3 id = "productname17">Стейк ланч</h3>
+								<p id = "productname17_2">Стейк ланч; Борщ украинский с говядиной; Зеленый салат с отваренной телятиной</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice17">799грн</h3>
+									<h3 id = "orderprice17">245 грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko17" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -437,16 +456,16 @@
 					</div>
 					<div id = "idblock18" class = "block18">
 						<div class = "img18">
-							<img id = "im18" src = "Picture/img23.png">
+							<img id = "im18" src = "Picture/img41.png">
 						</div>
 						<div id = "mi18" class = "minorblock">
 							<div class = "text">
-								<p id = "productname18">Филадельфия VIP</p>
-								<p id = "productname18_2">1600г</p>
+								<h3 id = "productname18">Mercato Italiano</h3>
+								<p id = "productname18_2">Салат с запеченной курицей, картошкой и соусом Вителло тоннато.Суп дня.Паста тельятеле с грибами и митболами.</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice18">799грн</h3>
+									<h3 id = "orderprice18">145грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko18" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -456,16 +475,16 @@
 					</div>
 					<div id = "idblock19" class = "block19">
 						<div class = "img19">
-							<img id = "im19" src = "Picture/img24.png">
+							<img id = "im19" src = "Picture/img42.png">
 						</div>
 						<div id = "mi19" class = "minorblock">
 							<div class = "text">
-								<p id = "productname19">Филадельфия VIP</p>
-								<p id = "productname19_2">1600г</p>
+								<h3 id = "productname19">mr.ZUMA</h3>
+								<p id = "productname19_2">Суп удон с курицей, лососем, яйцом и овощами.Филе миньон с тыквенным пюре и овощами в перуанском стиле.</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice19">799грн</h3>
+									<h3 id = "orderprice19">190грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko19" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -475,16 +494,16 @@
 					</div>
 					<div id = "idblock20" class = "block20">
 						<div class = "img20">
-							<img id = "im20" src = "Picture/img25.png">
+							<img id = "im20" src = "Picture/img43.png">
 						</div>
 						<div id = "mi20" class = "minorblock">
 							<div class = "text">
-								<p id = "productname20">Филадельфия VIP</p>
-								<p id = "productname20_2">1600г</p>
+								<h3 id = "productname20">BARVY</h3>
+								<p id = "productname20_2">Сезонный салат из овощей.Традиционный красный украинский борщ с фасолью.Котлеты по-киевски со шпинатным соусом.</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice20">799грн</h3>
+									<h3 id = "orderprice20">225 грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko20" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -492,18 +511,20 @@
 							</div>
 						</div>
 						</div>
+						</div>
+						<div class = "coldisplay">
 						<div id = "idblock21" class = "block21">
 						<div class = "img21">
 							<img id = "im21" src = "Picture/img26.png">
 						</div>
 						<div id = "mi21" class = "minorblock">
 							<div class = "text">
-								<p id = "productname21">Филадельфия VIP</p>
-								<p id = "productname21_2">1600г</p>
+								<h3 id = "productname21">Антипасти сырное</h3>
+								<p id = "productname21_2">330 грамм,Сыры: пармезан, дор блю, фета, бри, мааздам, моцарелла, мед, орехи и яблоки</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice21">799грн</h3>
+									<h3 id = "orderprice21">238грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko21" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -517,12 +538,12 @@
 						</div>
 						<div id = "mi22" class = "minorblock">
 							<div class = "text">
-								<p id = "productname22">Филадельфия VIP</p>
-								<p id = "productname22_2">1600г</p>
+								<h3 id = "productname22">Цезарь с теплым куриным филе</h3>
+								<p id = "productname22_2">220г,Сочетание хрустящих листьев салата ромэн и сыра пармезан, обжаренного куриного филе, бекона, приправленных специальным соусом Цезарь с хрустящими чесночными гренками, томатами черри и перепелиными яйцами</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice22">799грн</h3>
+									<h3 id = "orderprice22">148грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko22" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -536,8 +557,8 @@
 						</div>
 						<div id = "mi23" class = "minorblock">
 							<div class = "text">
-								<p id = "productname23">Филадельфия VIP</p>
-								<p id = "productname23_2">1600г</p>
+								<h3 id = "productname23">Фирменный бургер с котлетой из свинины</h3>
+								<p id = "productname23_2">200/80/30грамм,Фирменный бургер Песто с котлетой из телятины, с томатами, маринованный корнишон  и сыром Чеддер. Подается с картофелем-фри.</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
@@ -555,12 +576,12 @@
 						</div>
 						<div id = "mi24" class = "minorblock">
 							<div class = "text">
-								<p id = "productname24">Филадельфия VIP</p>
-								<p id = "productname24_2">1600г</p>
+								<h3 id = "productname24">Антипасти мясное</h3>
+								<p id = "productname24_2">140 грамм, Салями Наполи, копа, прошутто, грисини, вяленые томаты, оливки</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice24">799грн</h3>
+									<h3 id = "orderprice24">238грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko24" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -568,18 +589,20 @@
 							</div>
 						</div>
 					</div>
+					</div>
+					<div class = "coldisplay">
 					<div id = "idblock25" class = "block25">
 						<div class = "img25">
 							<img id = "im25" src = "Picture/img30.png">
 						</div>
 						<div id = "mi25" class = "minorblock">
 							<div class = "text">
-								<p id = "productname25">Филадельфия VIP</p>
-								<p id = "productname25_2">1600г</p>
+								<h3 id = "productname25">ПИЦЦА "ГОФРЕДО"</h3>
+								<p id = "productname25_2">860 грамм, Фирменный томатный соус, моцарелла, помидор, балык, салями итальянская, маринованный лук, базилик сушеный</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice25">799грн</h3>
+									<h3 id = "orderprice25">243грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko25" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -593,12 +616,12 @@
 						</div>
 						<div id = "mi26" class = "minorblock">
 							<div class = "text">
-								<p id = "productname26">Филадельфия VIP</p>
-								<p id = "productname26_2">1600г</p>
+								<h3 id = "productname26">ПИЦЦА «ПОЛЛО АМЕРИКАНО»</h3>
+								<p id = "productname26_2">860 грамм, Фирменный томатный соус, моцарелла, запеченное куриное филе, бекон, маслины, перец пепперони</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice26">799грн</h3>
+									<h3 id = "orderprice26">239грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko26" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -612,12 +635,12 @@
 						</div>
 						<div id = "mi27" class = "minorblock">
 							<div class = "text">
-								<p id = "productname27">Филадельфия VIP</p>
-								<p id = "productname27_2">1600г</p>
+								<h3 id = "productname27">Дуэт пиццы Болоньезе и Цезарь</h3>
+								<p id = "productname27_2">860 грамм, Фирменный томатный соус, моцарелла, запеченная курица, ананас, базилик сушеный</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice27">799грн</h3>
+									<h3 id = "orderprice27">195грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko27" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -631,12 +654,12 @@
 						</div>
 						<div id = "mi28" class = "minorblock">
 							<div class = "text">
-								<p id = "productname28">Филадельфия VIP</p>
-								<p id = "productname28_2">1600г</p>
+								<h3 id = "productname28">Фирменный бургер с котлетой из телятины</h3>
+								<p id = "productname28_2">200/80/30 грамм,Фирменный бургер Песто с котлетой из телятины, с томатами, маринованный корнишон  и сыром Чеддер. Подается с картофелем-фри</p>
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice28">799грн</h3>
+									<h3 id = "orderprice28">168грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko28" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -644,25 +667,31 @@
 							</div>
 						</div>
 					</div>
+					</div>
 			</div>
 		</div>
 		
 		
 		
 		</div>
-		<!--<div class="coreinputs">
-		<input type = "radio" id = "switch1" name = "in">
-		<input type = "radio" id = "switch2" name = "in">
-		<input type = "radio" id = "switch3" name = "in">
-		<input type = "radio" id = "switch4" name = "in">
-		<input type = "radio" id = "switch5" name = "in">
-		</div>-->
+		
+		<div class = "contactdata" id = "contactdataid">
+			<h2>Контакты</h2>
+			<p><a href = "#" id = "phone1">(098)002-57-48</a> - Отдел доставки обедов</p>
+			<p><a href = "#" id = "phone2">(098)002-57-48</a> - Отдел кейтеринга</p>
+			<p><a href = "#" id = "phone3">(098)002-57-48</a> - Фуршет Box</p>
+			<p>E-mail: <a href = "#" id = "email">bsolovei25@gmail.com</a></p>
+			<p>Pushkina 16a</p>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2541.5279520377608!2d30.485136015591422!3d50.4312660512405!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4e0ae58cf3aa69f4!2sEPAM%20Systems!5e0!3m2!1sen!2sua!4v1577180235087!5m2!1sen!2sua" width="1100" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+		</div>
+		
+		
 		<div id = "regbarid" class = "regbar">
 			<div class = "initials">
-			<form action="" method="post" id="cusCreate" autocomplete="off">
-				<input type = "text" value = "aa" id = "regbar-name" placeholder = "Имя" pattern="^[A-Za-zÀ-ÿ ,.'-]+$" required>
-				<input type = "text" value = "aa" id = "regbar-address" placeholder = "Адрес">
-				<input type = "tel" value = "+(380)" id = "rtelephone" placeholder = "Телефон" maxlength="30"  title="+(380)XXXXXXX" pattern="^[+]*[(][3]*[8]*[0][)]{0,1}[-\s\./0-9]*$" required>
+				<form action="" method="post" id="cusCreate" autocomplete="off">
+				<input type = "text" value = "aa" id = "regbar-name" title="Имя не должно содержать цифр и символов" placeholder = "Имя не должно содержать цифр и символов" pattern="^[A-Za-zÀ-ÿ ,.'-]+$" required>
+				<input type = "text" value = "aa" id = "regbar-address" title="Любой адрес(Пушкина 17а)" placeholder = "Любой адрес на англиском(Pushkina 17а)">
+				<input type = "tel" value = "+(380)" id = "rtelephone" placeholder = "+(380)XXXXXXX" maxlength="30"  title="+(380)XXXXXXX" pattern="^[+]*[(][3]*[8]*[0][)]{0,1}[-\s\./0-9]*$" required>
 				<input type = "submit" id = "regbar-submit" value = "Купить">
 				</form>
 			</div>
