@@ -1,7 +1,7 @@
 .title{
 	width:100%;
 	background-color:black;
-	height:60px;
+	height:auto;
 }
 
 .title{
@@ -16,25 +16,66 @@
 	margin-left:40px;
 }
 
-.navbar{
-	display:flex;
-	flex-direction:row;
+.navbar {
+  overflow: hidden;
+  background-color: #333; 
 }
 
-.subnav{
-	padding-left:45px;
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
-.navbar a{
-	padding-left:25px;
+.subnav {
+  float: left;
+  overflow: hidden;
 }
 
-.subnav-content{
-	background-color:red;
+.subnav .subnavbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: red;
+}
+
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: red;
+  width: 100%;
+  z-index: 1;
+}
+
+.subnav-content a {
+  float: left;
+  color: white;
+  text-decoration: none;
+}
+
+.subnav-content a:hover {
+  background-color: #eee;
+  color: black;
+}
+
+.subnav:hover .subnav-content {
+  display: block;
 }
 
 .order-right button{
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 .order-left{
@@ -160,17 +201,51 @@
 	resize: both;
 }
 
+.choose-menu{
+	max-width: 1200px;
+}
+
+.choose-menu ul{
+	display:flex;
+	flex-direction:row;
+	resize: both;
+	justify-content:space-between;
+	float:left;
+	position:static;
+	margin-top: 45%;
+	width: 95%;
+	list-style-type:none;
+	font-size:20;
+	font-family: Open Sans,sans-serif;
+}
+
+form input{
+	margin-left:10px;
+	border-radius: 20px;
+	width:200px;
+}
+
+.choose-menu ul li a{
+	text-decoration: none;
+}
+
 .image-tabs{
 resize: both;
 }
 
-.picpack{
+.coldisplay{
 	display:flex;
 	flex-direction:row;
 	justify-content:space-between;
+}
+
+.picpack{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
 	float:left;
 	position:static;
-	margin-top: 50%;
+	/*margin-top: 100%;*/
 	max-width: 1900px;
 }
 
@@ -198,6 +273,14 @@ resize: both;
 	margin-top:10px;
 	margin-left:5px;
 }
+
+.contactdata{
+	display:flex;
+	flex-direction:column;
+	/*max-width:1000px;*/
+	display:none;
+}
+
 
 .regbar{
 	display:flex;
@@ -230,3 +313,71 @@ resize: both;
 	width:100%;
 }
 
+.submitbutton button{
+	    transition: all .3s;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    background: #e31837;
+	height: 50px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: Open Sans,sans-serif;
+}
+
+.order-right button{
+	color: #f8f8f8;
+    border: none;
+    border-radius: 25px;
+    width: 100px;
+	height:40px;
+    font-size: 14px;
+    font-weight: 700;
+	    background: #e31837;
+}
+
+#phone1,#phone2,#phone3,#email{
+	text-decoration:none;
+	color:red;
+}
+
+#email{
+	text-decoration:none;
+	color:rgb(48, 190, 230);
+}
+
+.classcrumbs{
+	display:flex;
+	flex-direction:row;
+	resize: both;
+	float:left;
+	position:static;
+	width: 95%;
+	padding-left:3%;
+	font-size:20;
+	font-family: Open Sans,sans-serif;
+}
+
+#table1{
+	font-family: Open Sans,sans-serif;
+	
+}
+
+
+
+
+
+#rowid:nth-child(odd){
+	background-color:rgb(6, 128, 125);
+}
+
+#rowid:nth-child(even){
+	background-color:rgb(4, 83, 117);
+}
+
+
+
+#tdid{
+	padding:10px;
+}
