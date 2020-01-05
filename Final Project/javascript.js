@@ -39,6 +39,13 @@ function AppendCrumbsDays(day,country){
 	document.getElementById("crumbshome").innerHTML = "Home>>"+day+">>"+country;
 }
 
+function CleanImg(){
+	for (let i =0;i < num;i++){
+		arrimg[i].style.display = "none";
+		arrtext[i].style.display ="none";
+	}
+	
+}
 
 
 function show_Monday(country){
@@ -59,6 +66,8 @@ function show_Monday(country){
 	}
 	
 }
+
+
 
 
 function show_Tuesday(country){
@@ -190,30 +199,34 @@ class Client {
     addBasket(value) {
         this.buyerarr = value;
     }
+	
     WriteJson() {
+		let arrtmp =[];
         var restoredSession = {};
         if (JSON.parse(localStorage.getItem('session1') != null)){
             restoredSession = JSON.parse(localStorage.getItem('session1'));
-            var tmpobj = [];
-            for (let i = 0; i < restoredSession.length; i++)
-                tmpobj.push(restoredSession[i]);
-            tmpobj.push(this);          
-            localStorage.setItem('session1', JSON.stringify(tmpobj));
-            
+			//arrtmp.push(restoredSession);
+			for (let i =0;i < restoredSession.length;i++){
+				arrtmp.push(restoredSession[i]);
+			}
+			for(let i =0;i < this.buyerarr.length;i++){
+				arrtmp.push(this.buyerarr[i]);
+			}
+			localStorage.setItem('session1',JSON.stringify(arrtmp));
         }
         else {
-            var tmpobj = [];
-            tmpobj.push(this);
-            localStorage.setItem('session1', JSON.stringify(tmpobj));
-            restoredSession = JSON.parse(localStorage.getItem('session1'));
+            localStorage.setItem('session1',JSON.stringify(this.buyerarr));
         }
         
         console.log(JSON.parse(localStorage.getItem('session1')));
-    
+		//return restoredSession;
     }
 }
 
-
+document.getElementById("ShowHistory").addEventListener("click",function(){
+	//JSON.parse(localStorage.getItem('session1'))
+	generate_table(JSON.parse(localStorage.getItem('session1')),0);
+});
 
 document.getElementById("regbar-submit").addEventListener("click", function () {
     var Clientobj = new Client(document.getElementById("regbar-name").value, document.getElementById("regbar-address").value, document.getElementById("rtelephone").value);
@@ -277,13 +290,14 @@ function RemoveTable(){
 	let body = document.getElementsByTagName("body")[0];
 	let table = document.getElementById("table1");
 	let div = document.getElementById("div1");
-	
+
 	if(table != null){
 		body.removeChild(table);
 	}
 	if(div != null){
 		body.removeChild(div);
 	}
+	
 }
 
 function SubmitButtonPressed(idValue){
@@ -301,20 +315,26 @@ function ProductChecked(obj){
 }
 
 function generate_info(){
+	
 	RemoveTable();
 	InVisible();
 	document.getElementById("coreid").style.display = "none";
 	document.getElementById("contactdataid").style.display = "block";
-	document.getElementById("crumbshome") = "Home>>"+document.getElementById("contactButton").innerHTML;
-	document.getElementById("crumbshome").style.display = "block";
+	document.getElementById("crumbshome").innerHTML = "Home>>"+document.getElementById("contactButton").innerHTML;
+	
 }
 
+document.getElementById("bookButton").addEventListener("click",function(){
+	generate_table(BasketObject.arr,1);
+});
 
-function generate_table() {
+function generate_table(massarr, addPrice) {
+	var body = document.getElementsByTagName("body")[0];
+	//document.getElementById("crumbshome").innerHTML = "Home>>Order";
 	RemoveTable();
 	Visible();
 	InVisibleContact();
-	var body = document.getElementsByTagName("body")[0];
+	
 	var tbl = document.createElement("table");
 	tbl.id = "table1";
 	var tblBody = document.createElement("tbody");
@@ -330,14 +350,14 @@ function generate_table() {
 	tblBody.appendChild(rowth1);
 	tblBody.appendChild(rowth2);
 	tblBody.appendChild(rowth3);
-	for (var i = 0; i < BasketObject.arr.length; i++) {
+	for (var i = 0; i < massarr.length; i++) {
 	    var row = document.createElement("tr");
 		row.id = "rowid";
 	    var cell = document.createElement("td");
 		cell.id = "tdid";
-	    var cellText = document.createTextNode(BasketObject.arr[i].name);
+	    var cellText = document.createTextNode(massarr[i].name);
 	    var cell1 = document.createElement("td");
-	    var cellText1 = document.createTextNode(BasketObject.arr[i].price);
+	    var cellText1 = document.createTextNode(massarr[i].price);
 	    cell.appendChild(cellText);
 	    row.appendChild(cell);
 	    cell1.appendChild(cellText1);
@@ -348,7 +368,7 @@ function generate_table() {
 	    checkbox.checked = true;
 	    checkbox.id = i;
 	    // checkbox.onchange = ProductChecked(this);
-	    checkbox.onchange = function () { BasketObject.arr.splice(0, 1); generate_table(); document.getElementById("counterPlus").innerHTML -= 1; };
+	    checkbox.onchange = function () { massarr.splice(0, 1); generate_table(massarr,1); document.getElementById("counterPlus").innerHTML -= 1; };
 	    //checkbox.setAttribute("onchange", ProductChecked(this));
 		cell2.appendChild(checkbox);
 		row.appendChild(cell2);
@@ -357,18 +377,26 @@ function generate_table() {
 	
 	tbl.appendChild(tblBody);
 	body.appendChild(tbl);
-	var div = document.createElement("div");
-	div.id = "div1";
-	var p = document.createElement("p");
-	var cellText = document.createTextNode("Total price to insert = " + BasketObject.getPrice());
-	p.appendChild(cellText);
-	div.appendChild(p);
-	body.appendChild(div); 
+	
+	if(addPrice == 1){
+		var div = document.createElement("div");
+		div.id = "div1";
+		var p = document.createElement("p");
+		
+		var cellText = document.createTextNode("Total price to insert = " +  BasketObject.getPrice());
+		p.appendChild(cellText);
+		div.appendChild(p);
+		
+		body.appendChild(div); 
+		document.getElementById("regbarid").style.display = "block";
+	}
+	else{
+		document.getElementById("regbarid").style.display = "none";
+	}
 	tbl.setAttribute("border", "2");
 	document.getElementById("coreid").style.display = "none";
-	document.getElementById("regbarid").style.display = "block";
-	document.getElementById("crumbshome").style.display = "block";
-	document.getElementById("crumbshome") = "Home>>"+document.getElementById("bookButton").innerHTML;
+	
+	
 }
 
 function show_menu(obj){
@@ -377,6 +405,7 @@ function show_menu(obj){
     RemoveTable();
     InVisible();
 	InVisibleData();
+	
 	if(obj.id == "menu-pizzaid"){
     let arr = ["block", "block", "block", "block", "none", "block", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none"];
 		for (let i = 0; i < num; i++) {
@@ -417,7 +446,7 @@ function show_menu(obj){
 	AppendCrumbs(obj);
 }
 
-function AppendCrumbs(obj){
+function AppendCrumbs(obj){	
 	document.getElementById("crumbshome").innerHTML ="Home >>"+ obj.innerHTML;
 }
 
@@ -431,77 +460,58 @@ function ReturnStartPage(){
 	document.getElementById("crumbshome").innerHTML = "Home>>";
 }
 
-document.getElementById("switch1").addEventListener("click",function(){
-    document.getElementById("im1switch1").style.zIndex = "1";
-    document.getElementById("im2switch2").style.zIndex = "-1";
-    document.getElementById("im3switch3").style.zIndex = "-1";
-    document.getElementById("im4switch4").style.zIndex = "-1";
-    document.getElementById("im5switch5").style.zIndex = "-1";
+document.getElementById("switch1").addEventListener("change",function(){
+	changeSlide(1);
 
 });
 
 
-document.getElementById("switch2").addEventListener("click",function(){
-    document.getElementById("im1switch1").style.zIndex = "-1";
-    document.getElementById("im2switch2").style.zIndex = "1";
-    document.getElementById("im3switch3").style.zIndex = "-1";
-    document.getElementById("im4switch4").style.zIndex = "-1";
-    document.getElementById("im5switch5").style.zIndex = "-1";
+document.getElementById("switch2").addEventListener("change",function(){
+    
+	changeSlide(2);
 });
 
-document.getElementById("switch3").addEventListener("click",function(){
-    document.getElementById("im1switch1").style.zIndex = "-1";
-    document.getElementById("im2switch2").style.zIndex = "-1";
-    document.getElementById("im3switch3").style.zIndex = "+1";
-    document.getElementById("im4switch4").style.zIndex = "-1";
-    document.getElementById("im5switch5").style.zIndex = "-1";
+document.getElementById("switch3").addEventListener("change",function(){
+   changeSlide(3);
 });
 
-document.getElementById("switch4").addEventListener("click",function(){
-    document.getElementById("im1switch1").style.zIndex = "-1";
-    document.getElementById("im2switch2").style.zIndex = "-1";
-    document.getElementById("im3switch3").style.zIndex = "-1";
-    document.getElementById("im4switch4").style.zIndex = "+1";
-    document.getElementById("im5switch5").style.zIndex = "-1";
+document.getElementById("switch4").addEventListener("change",function(){
+    changeSlide(4);
 });
 
-document.getElementById("switch5").addEventListener("click",function(){
-    document.getElementById("im1switch1").style.zIndex = "-1";
-    document.getElementById("im2switch2").style.zIndex = "-1";
-    document.getElementById("im3switch3").style.zIndex = "-1";
-    document.getElementById("im4switch4").style.zIndex = "-1";
-    document.getElementById("im5switch5").style.zIndex = "+1";
+document.getElementById("switch5").addEventListener("change",function(){
+    changeSlide(5);
 });
 
+function changeSlide(index)
+{
+	let arr=["-1","-1","-1","-1","-1"];
+	arr[index-1]="1";
+	for (let i=1; i<=arr.length;i++){
+		document.getElementById("im"+i+"switch"+i).style.zIndex =arr[i-1];
+	}
+}
 
 window.onload =  function() {
-	let arr = [];
-	//for(let i=0;i < 5;i++){
-	let swt1 = document.getElementById("switch1");
-	let swt2 = document.getElementById("switch2");
-	let swt3 = document.getElementById("switch3");
-	let swt4 = document.getElementById("switch4");
-	let swt5 = document.getElementById("switch5");
-	arr.push(swt1);
-	arr.push(swt2);
-	arr.push(swt3);
-	arr.push(swt4);
-	arr.push(swt5);
-	//function CallArr(){
-		setInterval(setTimeout(MoveArr(arr),5000),1000);
-	//}
+	let ii=1;
+	setInterval(function(){ii = (ii % 5) + 1;document.getElementById("switch"+ii).checked = "true";changeSlide(ii)},3000);
 	
-	//}
-  
 };
 
-function MoveArr(obj){
-	let i =0;
-	
-	while(i < obj.length){
-		obj[i].checked = "true";
-		i++;
-	}
-	
 
-}
+document.getElementById("buttonid").addEventListener("click",function(){
+	let searchText = (document.getElementById("searchid").value).toUpperCase();
+	CleanImg();
+	RemoveTable();
+	InVisible();
+	InVisibleData();
+	document.getElementById("coreid").style.display = "block";
+	for(let i=1;i <=num;i++){
+		if(((document.getElementById("productname"+i).innerHTML).toUpperCase()).indexOf(searchText) != -1){
+			//console.log(document.getElementById("productname"+i).innerHTML);
+			
+			document.getElementById("idblock"+i).style.display = "block";
+			document.getElementById("mi"+i).style.display = "block";
+		}
+	}
+});
