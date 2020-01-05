@@ -11,9 +11,9 @@
 
 <body>
 	<div class = "title">
-		<div class = "image">
+		<!--<div class = "image">
 		<img src = "img/full_star.jpg">
-		</div>
+		</div>-->
 		<div class="navbar">
 			<a href="#" onclick = "ReturnStartPage()">Home</a>
 			<div class="subnav">
@@ -73,7 +73,13 @@
 			
 			<a href="#" id = "contactButton" onclick="generate_info()">Contact</a>
 			
+			<a href="#" id = "ShowHistory">History</a>
 			
+			
+		</div>
+		<div class = "search">
+		<input type = "text" id = "searchid" value = "пицца">
+		<input type = "button" id = "buttonid" value = "Search">
 		</div>
 			<div class = "order">
 				<div class = "order-left">
@@ -83,7 +89,7 @@
 					</div>
 				</div>
 				<div class = "order-right">
-					<button id = "bookButton" onclick="generate_table()" >Заказать!!!</button>
+					<button id = "bookButton" >Order</button>
 				</div>
 			</div>
 		</div>
@@ -100,7 +106,7 @@
 			<label for="switch2"><img id = "im2switch2" src="img/2Dominos.jpg" alt = '2'></label>
 			<label for="switch3"><img id = "im3switch3" src="img/3Dominos.jpg" alt = '3'></label>
 			<label for="switch4"><img id = "im4switch4" src="img/4Dominos.jpg" alt = '4'></label>
-			<label for="switch5"><img id = "im5switch5" src="img/1Dominos.jpg" alt = '5'></label>
+			<label for="switch5"><img id = "im5switch5" src="img/5Dominos.jpg" alt = '5'></label>
 		</div>
 		
 		<div class = "choose-menu">
@@ -154,7 +160,7 @@
 									<button id = "subko2" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
 								</div>
 							</div>
-						</div>
+						</div> 
 					</div>				
 					<div id = "idblock3" class = "block3">
 						<div class = "img3">
@@ -679,8 +685,8 @@
 			<h2>Контакты</h2>
 			<p><a href = "#" id = "phone1">(098)002-57-48</a> - Отдел доставки обедов</p>
 			<p><a href = "#" id = "phone2">(098)002-57-48</a> - Отдел кейтеринга</p>
-			<p><a href = "#" id = "phone3">(098)002-57-48</a> - Фуршет Box</p>
 			<p>E-mail: <a href = "#" id = "email">bsolovei25@gmail.com</a></p>
+			<p><a href = "#" id = "phone3">(098)002-57-48</a> - Фуршет Box</p>
 			<p>Pushkina 16a</p>
 			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2541.5279520377608!2d30.485136015591422!3d50.4312660512405!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4e0ae58cf3aa69f4!2sEPAM%20Systems!5e0!3m2!1sen!2sua!4v1577180235087!5m2!1sen!2sua" width="1100" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 		</div>
