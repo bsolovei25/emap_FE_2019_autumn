@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang = 'en'>
+<html lang = 'ru'>
 <head>
 	<title>Multicultural restourant</title>
 	<meta charset="utf-8">
@@ -11,9 +11,6 @@
 
 <body>
 	<div class = "title">
-		<!--<div class = "image">
-		<img src = "img/full_star.jpg">
-		</div>-->
 		<div class="navbar">
 			<a href="#" onclick = "ReturnStartPage()">Home</a>
 			<div class="subnav">
@@ -74,6 +71,10 @@
 			<a href="#" id = "contactButton" onclick="generate_info()">Contact</a>
 			
 			<a href="#" id = "ShowHistory">History</a>
+			<a href="#" id = "ShowGalary">Galery</a>
+			<a href="#" id = "ShowSortPrice">ASC</a><!--value ="ASC"-->
+			<a href="#" id = "LogIn">Log In</a>
+			<a href="#" id = "LogOut">Log Out</a>
 			
 			
 		</div>
@@ -102,11 +103,11 @@
 		<input type = "radio" id = "switch5" name = "in">
 		</div>
 		<div id = "idslider" class = "slider">
-			<label for="switch1"><img id = "im1switch1" src="img/1Dominos.jpg" alt = '1'></label>
-			<label for="switch2"><img id = "im2switch2" src="img/2Dominos.jpg" alt = '2'></label>
-			<label for="switch3"><img id = "im3switch3" src="img/3Dominos.jpg" alt = '3'></label>
-			<label for="switch4"><img id = "im4switch4" src="img/4Dominos.jpg" alt = '4'></label>
-			<label for="switch5"><img id = "im5switch5" src="img/5Dominos.jpg" alt = '5'></label>
+			<label for="switch1"><img id = "im1switch1" src="Picture/1Dominos.jpg" alt = '1'></label>
+			<label for="switch2"><img id = "im2switch2" src="Picture/2Dominos.jpg" alt = '2'></label>
+			<label for="switch3"><img id = "im3switch3" src="Picture/3Dominos.jpg" alt = '3'></label>
+			<label for="switch4"><img id = "im4switch4" src="Picture/4Dominos.jpg" alt = '4'></label>
+			<label for="switch5"><img id = "im5switch5" src="Picture/5Dominos.jpg" alt = '5'></label>
 		</div>
 		
 		<div class = "choose-menu">
@@ -121,12 +122,12 @@
 			<div class= "classcrumbs" id= "idcrumbs">
 			<h3 id = "crumbshome">Home</h3>
 		</div>
-		<div id = "idimage-tabs"class = "image-tabs">
-			<div class = "picpack">
-			<div class = "coldisplay">
-					<div id = "idblock1" class = "block1">
+		<div id = "idimage-tabs" class = "image-tabs">
+			<div class = "picpack" id = "picpackid">
+			<!--<div class = "coldisplay">-->
+					<div id = "idblock1" class = "block1" title="0">
 						<div class = "img1">
-							<img id = "im1" src = "Picture/img3.png">
+							<img id = "im1" src = "Picture/img3.png" alt="Monday_Italy">
 						</div>
 						<div id = "mi1" class = "minorblock">
 							<div class = "text">
@@ -143,9 +144,9 @@
 							</div>
 						</div>
 					</div>
-					<div id = "idblock2" class = "block2">
+					<div id = "idblock2" class = "block2" title="0">
 						<div class = "img2">
-							<img id = "im2" src = "Picture/img34.png">
+							<img id = "im2" src = "Picture/img34.png" alt="Tuesday_Italy">
 						</div>
 						<div id = "mi2" class = "minorblock">
 							<div class = "text">
@@ -162,9 +163,9 @@
 							</div>
 						</div> 
 					</div>				
-					<div id = "idblock3" class = "block3">
+					<div id = "idblock3" class = "block3" title="0">
 						<div class = "img3">
-							<img id = "im3" src = "Picture/img1.png">
+							<img id = "im3" src = "Picture/img1.png" alt="Wednesday_Italy">
 						</div>
 						<div id = "mi3" class = "minorblock">
 							<div class = "text">
@@ -181,9 +182,9 @@
 							</div>
 						</div>
 					</div>
-					<div id = "idblock4" class = "block4">
+					<div id = "idblock4" class = "block4" title="0">
 						<div class = "img4">
-							<img id = "im4" src = "Picture/img2.png">
+							<img id = "im4" src = "Picture/img2.png" alt="Thursday_Italy">
 						</div>
 						<div id = "mi4" class = "minorblock">
 							<div class = "text">
@@ -192,7 +193,7 @@
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice4">239</h3>
+									<h3 id = "orderprice4">240грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko4" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -200,11 +201,11 @@
 							</div>
 						</div>
 					</div>			
-				</div>
-				<div class = "coldisplay">
-					<div id = "idblock5" class = "block5">
+				<!--</div>-->
+				<!--<div class = "coldisplay">-->
+					<div id = "idblock5" class = "block5" title="3">
 						<div class = "img5">
-							<img id = "im5" src = "Picture/img6.png">
+							<img id = "im5" src = "Picture/img6.png" alt="Friday_Italy">
 						</div>
 						<div id = "mi5" class = "minorblock">
 							<div class = "text">
@@ -225,9 +226,9 @@
 						</div>
 					</div>
 					
-					<div id = "idblock6" class = "block6">
+					<div id = "idblock6" class = "block6" title="0">
 						<div class = "img6">
-							<img id = "im6" src = "Picture/img4.png">
+							<img id = "im6" src = "Picture/img4.png" alt="Sunday_Italy">
 						</div>
 						<div id = "mi6" class = "minorblock">
 							<div class = "text">								
@@ -244,13 +245,13 @@
 							</div>
 						</div>
 					</div>
-					<div id = "idblock7" class = "block7">
+					<div id = "idblock7" class = "block7" title="1">
 						<div class = "img7">
-							<img id = "im7" src = "Picture/img12.png">
+							<img id = "im7" src = "Picture/img12.png" alt="Monday_Japan">
 						</div>
 						<div id = "mi7" class = "minorblock">
 							<div class = "text">
-								<h3 id = "productname7">Филадельфия Де Люкс с тунцом и креветкой</3>
+								<h3 id = "productname7">Филадельфия Де Люкс с тунцом и креветкой</h3>
 								<p id = "productname7_2">6 кусочков/200 грамм</p>
 								
 							</div>
@@ -264,13 +265,13 @@
 							</div>
 						</div>
 					</div>
-					<div id = "idblock8" class = "block8">
+					<div id = "idblock8" class = "block8" title="1">
 						<div class = "img8">
-							<img id = "im8" src = "Picture/img13.png">
+							<img id = "im8" src = "Picture/img13.png" alt="Tuesday_Japan">
 						</div>
 						<div id = "mi8" class = "minorblock">
 							<div class = "text">
-								<p id = "productname8">Филадельфия Де Люкс со свежим лососем</p>
+								<h3 id = "productname8">Филадельфия Де Люкс со свежим лососем</h3>
 								<p id = "productname8_2">6 кусочков,230г</p>
 							</div>
 							<div class = "priceconfirm">
@@ -283,11 +284,11 @@
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class = "coldisplay">
-					<div id = "idblock9" class = "block9">
+				<!--</div>-->
+				<!--<div class = "coldisplay">-->
+					<div id = "idblock9" class = "block9" title="1">
 						<div class = "img9">
-							<img id = "im9" src = "Picture/img14.png">
+							<img id = "im9" src = "Picture/img14.png" alt="Wednesday_Japan">
 						</div>
 						<div id = "mi9" class = "minorblock">
 							<div class = "text">
@@ -304,13 +305,13 @@
 							</div>
 						</div>
 					</div>
-					<div id = "idblock10" class = "block10">
+					<div id = "idblock10" class = "block10" title="1">
 						<div class = "img10">
-							<img id = "im10" src = "Picture/img15.png">
+							<img id = "im10" src = "Picture/img15.png" alt="Thursday_Japan">
 						</div>
 						<div id = "mi10" class = "minorblock">
 							<div class = "text">
-								<p id = "productname10">Філадельфія Грін зі свіжим лососем</p>
+								<h3 id = "productname10">Філадельфія Грін зі свіжим лососем</h3>
 								<p id = "productname10_2">210г</p>
 							</div>
 							<div class = "priceconfirm">
@@ -323,13 +324,13 @@
 							</div>
 						</div>
 					</div>			
-					<div id = "idblock11" class = "block11">
+					<div id = "idblock11" class = "block11" title="1">
 						<div class = "img11">
-							<img id = "im11" src = "Picture/img16.png">
+							<img id = "im11" src = "Picture/img16.png" alt="Friday_Japan">
 						</div>
 						<div id = "mi11" class = "minorblock">
 							<div class = "text">
-								<p id = "productname11">Філадельфія в кунжуті зі свіжим лососем</p>
+								<h3 id = "productname11">Філадельфія в кунжуті зі свіжим лососем</h3>
 								<p id = "productname11_2">6 шматочків/205г</p>
 							</div>
 							<div class = "priceconfirm">
@@ -342,13 +343,13 @@
 							</div>
 						</div>
 					</div>
-					<div id = "idblock12" class = "block12">
+					<div id = "idblock12" class = "block12" title="1">
 						<div class = "img12">
-							<img id = "im12" src = "Picture/img17.png">
+							<img id = "im12" src = "Picture/img17.png" alt="Sunday_Japan">
 						</div>
 						<div id = "mi12" class = "minorblock">
 							<div class = "text">
-								<p id = "productname12">Червоний Дракон</p>
+								<h3 id = "productname12">Червоний Дракон</h3>
 								<p id = "productname12_2">250г</p>
 							</div>
 							<div class = "priceconfirm">
@@ -361,11 +362,9 @@
 							</div>
 						</div>
 					</div>
-					</div>
-					<div class = "coldisplay">
-					<div id = "idblock13" class = "block13">
+					<div id = "idblock13" class = "block13" title="2">
 						<div class = "img13">
-							<img id = "im13" src = "Picture/img18.png">
+							<img id = "im13" src = "Picture/img18.png" alt="Saturday_Japan">
 						</div>
 						<div id = "mi13" class = "minorblock">
 							<div class = "text">
@@ -382,9 +381,9 @@
 							</div>
 						</div>
 					</div>
-					<div id = "idblock14" class = "block14">
+					<div id = "idblock14" class = "block14" title="2">
 						<div class = "img14">
-							<img id = "im14" src = "Picture/img19.png">
+							<img id = "im14" src = "Picture/img19.png" alt="Monday_Japan">
 						</div>
 						<div id = "mi14" class = "minorblock">
 							<div class = "text">
@@ -401,13 +400,13 @@
 							</div>
 						</div>
 					</div>
-					<div id = "idblock15" class = "block15">
+					<div id = "idblock15" class = "block15" title="2">
 						<div class = "img15">
-							<img id = "im15" src = "Picture/img20.png">
+							<img id = "im15" src = "Picture/img20.png" alt="Tuesday_Japan">
 						</div>
 						<div id = "mi15" class = "minorblock">
 							<div class = "text">
-								<p id = "productname15">Набор Лососевый Микс</p>
+								<h3 id = "productname15">Набор Лососевый Микс</h3>
 								<p id = "productname15_2">710г</p>
 							</div>
 							<div class = "priceconfirm">
@@ -420,13 +419,13 @@
 							</div>
 						</div>
 					</div>
-					<div id = "idblock16" class = "block16">
+					<div id = "idblock16" class = "block16" title="2">
 						<div class = "img16">
-							<img id = "im16" src = "Picture/img21.png">
+							<img id = "im16" src = "Picture/img21.png" alt="Wednesday_Japan">
 						</div>
 						<div id = "mi16" class = "minorblock">
 							<div class = "text">
-								<p id = "productname16">Набор De Lux</p>
+								<h3 id = "productname16">Набор De Lux</h3>
 								<p id = "productname16_2">990г</p>
 							</div>
 							<div class = "priceconfirm">
@@ -439,11 +438,9 @@
 							</div>
 						</div>
 					</div>
-					</div>
-					<div class = "coldisplay">
-					<div id = "idblock17" class = "block17">
+					<div id = "idblock17" class = "block17" title="4">
 						<div class = "img17">
-							<img id = "im17" src = "Picture/img40.png">
+							<img id = "im17" src = "Picture/img40.png" alt="Saturday_Italy">
 						</div>
 						<div id = "mi17" class = "minorblock">
 							<div class = "text">
@@ -460,9 +457,9 @@
 							</div>
 						</div>
 					</div>
-					<div id = "idblock18" class = "block18">
+					<div id = "idblock18" class = "block18" title="4">
 						<div class = "img18">
-							<img id = "im18" src = "Picture/img41.png">
+							<img id = "im18" src = "Picture/img41.png" alt="Monday_Italy">
 						</div>
 						<div id = "mi18" class = "minorblock">
 							<div class = "text">
@@ -479,9 +476,9 @@
 							</div>
 						</div>
 					</div>
-					<div id = "idblock19" class = "block19">
+					<div id = "idblock19" class = "block19" title="4">
 						<div class = "img19">
-							<img id = "im19" src = "Picture/img42.png">
+							<img id = "im19" src = "Picture/img42.png" alt="Tuesday_Italy">
 						</div>
 						<div id = "mi19" class = "minorblock">
 							<div class = "text">
@@ -498,9 +495,9 @@
 							</div>
 						</div>
 					</div>
-					<div id = "idblock20" class = "block20">
+					<div id = "idblock20" class = "block20" title="4">
 						<div class = "img20">
-							<img id = "im20" src = "Picture/img43.png">
+							<img id = "im20" src = "Picture/img43.png" alt="Wednesday_Italy">
 						</div>
 						<div id = "mi20" class = "minorblock">
 							<div class = "text">
@@ -517,11 +514,9 @@
 							</div>
 						</div>
 						</div>
-						</div>
-						<div class = "coldisplay">
-						<div id = "idblock21" class = "block21">
+						<div id = "idblock21" class = "block21" title="3">
 						<div class = "img21">
-							<img id = "im21" src = "Picture/img26.png">
+							<img id = "im21" src = "Picture/img26.png" alt="Thursday_Italy">
 						</div>
 						<div id = "mi21" class = "minorblock">
 							<div class = "text">
@@ -538,9 +533,9 @@
 							</div>
 						</div>
 					</div>
-					<div id = "idblock22" class = "block22">
+					<div id = "idblock22" class = "block22" title="3">
 						<div class = "img22">
-							<img id = "im22" src = "Picture/img27.png">
+							<img id = "im22" src = "Picture/img27.png" alt="Friday_Italy">
 						</div>
 						<div id = "mi22" class = "minorblock">
 							<div class = "text">
@@ -557,9 +552,9 @@
 							</div>
 						</div>
 					</div>
-					<div id = "idblock23" class = "block23">
+					<div id = "idblock23" class = "block23" title="3">
 						<div class = "img23">
-							<img id = "im23" src = "Picture/img28.png">
+							<img id = "im23" src = "Picture/img28.png" alt="Sunday_Italy">
 						</div>
 						<div id = "mi23" class = "minorblock">
 							<div class = "text">
@@ -576,9 +571,9 @@
 							</div>
 						</div>
 					</div>
-					<div id = "idblock24" class = "block24">
+					<div id = "idblock24" class = "block24" title="3">
 						<div class = "img24">
-							<img id = "im24" src = "Picture/img29.png">
+							<img id = "im24" src = "Picture/img29.png" alt="Saturday_Italy">
 						</div>
 						<div id = "mi24" class = "minorblock">
 							<div class = "text">
@@ -595,11 +590,9 @@
 							</div>
 						</div>
 					</div>
-					</div>
-					<div class = "coldisplay">
-					<div id = "idblock25" class = "block25">
+					<div id = "idblock25" class = "block25" title="0">
 						<div class = "img25">
-							<img id = "im25" src = "Picture/img30.png">
+							<img id = "im25" src = "Picture/img30.png" alt="Monday_Italy">
 						</div>
 						<div id = "mi25" class = "minorblock">
 							<div class = "text">
@@ -616,9 +609,9 @@
 							</div>
 						</div>
 					</div>
-					<div id = "idblock26" class = "block26">
+					<div id = "idblock26" class = "block26" title="0">
 						<div class = "img26">
-							<img id = "im26" src = "Picture/img31.png">
+							<img id = "im26" src = "Picture/img31.png" alt="Tuesday_Italy">
 						</div>
 						<div id = "mi26" class = "minorblock">
 							<div class = "text">
@@ -627,7 +620,7 @@
 							</div>
 							<div class = "priceconfirm">
 								<div class = "price">
-									<h3 id = "orderprice26">239грн</h3>
+									<h3 id = "orderprice26">462грн</h3>
 								</div>
 								<div class = "submitbutton">
 									<button id = "subko26" onClick = 'SubmitButtonPressed(this.id)' type = "submit">Click me</button>
@@ -635,9 +628,9 @@
 							</div>
 						</div>
 					</div>
-					<div id = "idblock27" class = "block27">
+					<div id = "idblock27" class = "block27" title="0">
 						<div class = "img27">
-							<img id = "im27" src = "Picture/img32.png">
+							<img id = "im27" src = "Picture/img32.png" alt="Wednesday_Italy">
 						</div>
 						<div id = "mi27" class = "minorblock">
 							<div class = "text">
@@ -654,9 +647,9 @@
 							</div>
 						</div>
 					</div>
-					<div id = "idblock28" class = "block28">
+					<div id = "idblock28" class = "block28" title="3">
 						<div class = "img28">
-							<img id = "im28" src = "Picture/img33.png">
+							<img id = "im28" src = "Picture/img33.png" alt="Thursday_Italy">
 						</div>
 						<div id = "mi28" class = "minorblock">
 							<div class = "text">
@@ -672,7 +665,6 @@
 								</div>
 							</div>
 						</div>
-					</div>
 					</div>
 			</div>
 		</div>
@@ -704,6 +696,32 @@
 			<!--<div class = "regbar-button">
 				
 			</div>-->
+		</div>
+		<div class = "galery" id = "galeryid">
+			<div class = "gal1" id = "gal1id">
+			<img id = "gal1im1" src = "Picture/img2.png" alt = "gal1im1">
+			</div>
+			<div class = "gal2" id = "gal2id">
+			<img id = "gal2im1" src = "Picture/img2.png" alt = "gal2im1">
+			<img id = "gal2im2" src = "Picture/img3.png" alt = "gal2im2">
+			<img id = "gal2im3" src = "Picture/img4.png" alt = "gal2im3">
+			<img id = "gal2im4" src = "Picture/img5.png" alt = "gal2im4">
+			<img id = "gal2im5" src = "Picture/img6.png" alt = "gal2im5">
+			<img id = "gal2im6" src = "Picture/img19.png" alt = "gal2im6">
+			<img id = "gal2im7" src = "Picture/img11.png" alt = "gal2im7">
+			<img id = "gal2im8" src = "Picture/img12.png" alt = "gal2im8">
+			
+			</div>
+		</div>
+		<div class ="logclass" id = "logid">
+		<div class ="innerlog">
+			<h2>Войти</h2>
+			<a href="#" id = "crossid" onclick = "ReturnStartPage()"><i class="fa fa-times" aria-hidden="true"></i></a>
+			<input type = "text" id = "logformid" placeholder = "Name"/>
+			<input type = "password" id = "passwordformid" placeholder = "Password"/>
+			<input type = "button" id = "buttonlogformid" value = "Log In"/>
+			<input type = "button" id = "buttonregformid" value = "Register"/>
+			</div>
 		</div>
 	
 	
