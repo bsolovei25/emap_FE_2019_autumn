@@ -1,10 +1,6 @@
-
-
-var countGoods = document.getElementById('counterPlus');
-
 var arrimg = [];
 var arrtext = [];
-var num = 28;
+var num = document.getElementById("picpackid").children.length;
 
 var arrayOfButtons = [];
 var arrayOfPrices = [];
@@ -16,7 +12,7 @@ for (let i =1;i < num+1;i++){
 	arrayOfButtons.push('subko'+i);
 }
 
-for (let i =1;i < num+1;i++){
+for (let i =1;i < num+1;i++){	
 	arrayOfPrices.push((document.getElementById('orderprice'+i)).innerHTML);
 }
 
@@ -47,45 +43,105 @@ function CleanImg(){
 	
 }
 
+function ClearPicPac(){
+	let picpackelem = document.getElementById("picpackid");
+	let m = picpackelem.children.length-1;
+	while(m >=0 ){
+		picpackelem.removeChild(picpackelem.children[m]);
+		m--;
+	}
+}
+
+function ShowImg(ArrImg){
+	for(let i =0;i < ArrImg.length;i++){
+		arrimg[ArrImg[i]].style.display = "block";
+		arrtext[ArrImg[i]].style.display = "block";
+	}
+	Sort(document.getElementById("ShowSortPrice").innerHTML);
+}
+
+function sortNumber(a, b) {
+  return a - b;
+}
+
+function Sort(sortorder){
+	let arrprice = [];
+	let orderOfSort = sortorder;
+	let tmparr = [];
+	let picpackelem = document.getElementById("picpackid");
+	let tmpvisible = [];
+	for(let i=0;i<arrimg.length;i++){
+		if(arrimg[i].style.display == "block"){
+			let len = arrimg[i].id.length - "idblock".length;
+			arrprice.push(parseInt(arrimg[i].children[1].children[1].children[0].textContent));
+			tmparr.push(parseInt(arrimg[i].children[1].children[1].children[0].textContent));
+			tmpvisible.push(parseInt(arrimg[i].id.slice(-len))-1);
+		}
+	}
+	
+	ClearPicPac();
+	
+	tmparr.sort(sortNumber);
+	if(orderOfSort == "DES"){
+		tmparr.reverse();
+	}
+	
+    for(let i =0;i < tmparr.length;i++){
+		let index = arrprice.indexOf(tmparr[i]);
+		picpackelem.appendChild(arrimg[tmpvisible[index]]);
+	}
+}
 
 function show_Monday(country){
 	document.getElementById("coreid").style.display = "block";
 	RemoveTable();
 	InVisible();
 	InVisibleData();
+	InVisibleGalery();
+	InVisibleLog();
+	CleanImg();
 	let arr = [];
-	if(country == "Italy"){
-	    arr = ["block", "block", "block", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none"];
+	if(country == "Italy"){		
+		for(let i =0;i < arrimg.length;i++){
+			if(arrimg[i].children[0].children[0].getAttribute('alt') == "Monday_Italy"||arrimg[i].children[0].children[0].getAttribute('alt') == "Tuesday_Italy"){
+				arr.push(i);
+			}
+		}		
 	}else{
-	    arr = ["none", "none", "none", "none", "none", "none", "block", "block", "block", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none"];
+		for(let i =0;i < arrimg.length;i++){
+			if(arrimg[i].children[0].children[0].getAttribute('alt') == "Monday_Japan"||arrimg[i].children[0].children[0].getAttribute('alt') == "Tuesday_Japan"){
+				arr.push(i);
+			}
+		}	
 	}
+	ShowImg(arr);
 	AppendCrumbsDays("Monday",country);
-	for (let i =0;i < num;i++){
-		arrimg[i].style.display = arr[i];
-		arrtext[i].style.display =arr[i];
-	}
-	
 }
-
-
-
-
 function show_Tuesday(country){
 	document.getElementById("coreid").style.display = "block";
 	RemoveTable();
 	InVisible();
 	InVisibleData();
+	InVisibleGalery();
+	InVisibleLog();
+	CleanImg();
 	let arr = [];
-	if(country == "Italy"){
-	    arr = ["none", "none", "block", "block", "block", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none"];
+	if(country == "Italy"){		
+		for(let i =0;i < arrimg.length;i++){
+			if(arrimg[i].children[0].children[0].getAttribute('alt') == "Wednesday_Italy"||arrimg[i].children[0].children[0].getAttribute('alt') == "Thursday_Italy"){
+				arr.push(i);
+			}
+		}		
 	}else{
-	    arr = ["none", "none", "none", "none", "none", "none", "none", "none", "block", "block", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none"];
+		for(let i =0;i < arrimg.length;i++){
+			if(arrimg[i].children[0].children[0].getAttribute('alt') == "Wednesday_Japan"||arrimg[i].children[0].children[0].getAttribute('alt') == "Thursday_Japan"){
+				arr.push(i);
+			}
+		}	
 	}
+	ShowImg(arr);
 	AppendCrumbsDays("Tuesday",country);
-	for (let i =0;i < num;i++){
-		arrimg[i].style.display = arr[i];
-		arrtext[i].style.display = arr[i];
-	}
+	
 }
 
 function show_Wednesday(country){
@@ -93,17 +149,26 @@ function show_Wednesday(country){
 	RemoveTable();
 	InVisible();
 	InVisibleData();
+	InVisibleGalery();
+	InVisibleLog();
+	CleanImg();
 	let arr = [];
-	if(country == "Italy"){
-	    arr = ["none", "none", "none", "none", "block", "block", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "block", "none", "none", "none", "none", "none", "none", "none"];
+	if(country == "Italy"){		
+		for(let i =0;i < arrimg.length;i++){
+			if(arrimg[i].children[0].children[0].getAttribute('alt') == "Friday_Italy"||arrimg[i].children[0].children[0].getAttribute('alt') == "Sunday_Italy"){
+				arr.push(i);
+			}
+		}		
 	}else{
-	    arr = ["none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "block", "block", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none"];
+		for(let i =0;i < arrimg.length;i++){
+			if(arrimg[i].children[0].children[0].getAttribute('alt') == "Friday_Japan"||arrimg[i].children[0].children[0].getAttribute('alt') == "Sunday_Japan"){
+				arr.push(i);
+			}
+		}	
 	}
+	ShowImg(arr);
 	AppendCrumbsDays("Wednesday",country);
-	for (let i =0;i < num;i++){
-		arrimg[i].style.display = arr[i];
-		arrtext[i].style.display = arr[i];
-	}
+	
 }
 
 
@@ -112,17 +177,26 @@ function show_Thursday(country) {
     RemoveTable();
     InVisible();
 	InVisibleData();
+	InVisibleGalery();
+	InVisibleLog();
+	CleanImg();
     let arr = [];
-    if (country == "Italy") {
-        arr = ["none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "block", "block", "block", "none", "none", "none", "none", "none"];
-    } else {
-        arr = ["none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "block", "block", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none"];
-    }
+    if(country == "Italy"){		
+		for(let i =0;i < arrimg.length;i++){
+			if(arrimg[i].children[0].children[0].getAttribute('alt') == "Saturday_Italy"||arrimg[i].children[0].children[0].getAttribute('alt') == "Monday_Italy"){
+				arr.push(i);
+			}
+		}		
+	}else{
+		for(let i =0;i < arrimg.length;i++){
+			if(arrimg[i].children[0].children[0].getAttribute('alt') == "Saturday_Japan"||arrimg[i].children[0].children[0].getAttribute('alt') == "Monday_Japan"){
+				arr.push(i);
+			}
+		}	
+	}
+	ShowImg(arr);
 	AppendCrumbsDays("Thursday",country);
-    for (let i = 0; i < num; i++) {
-        arrimg[i].style.display = arr[i];
-        arrtext[i].style.display = arr[i];
-    }
+    
 }
 
 function show_Friday(country) {
@@ -130,17 +204,26 @@ function show_Friday(country) {
     RemoveTable();
     InVisible();
 	InVisibleData();
+	InVisibleGalery();
+	InVisibleLog();
+	CleanImg();
     let arr = [];
-    if (country == "Italy") {
-        arr = ["none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "block", "block", "block", "none", "none", "none", "none"];
-    } else {
-        arr = ["none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "block", "block", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none"];
-    }
+    if(country == "Italy"){		
+		for(let i =0;i < arrimg.length;i++){
+			if(arrimg[i].children[0].children[0].getAttribute('alt') == "Tuesday_Italy"||arrimg[i].children[0].children[0].getAttribute('alt') == "Wednesday_Italy"){
+				arr.push(i);
+			}
+		}		
+	}else{
+		for(let i =0;i < arrimg.length;i++){
+			if(arrimg[i].children[0].children[0].getAttribute('alt') == "Tuesday_Japan"||arrimg[i].children[0].children[0].getAttribute('alt') == "Wednesday_Japan"){
+				arr.push(i);
+			}
+		}	
+	}
+	ShowImg(arr);
 	AppendCrumbsDays("Friday",country);
-    for (let i = 0; i < num; i++) {
-        arrimg[i].style.display = arr[i];
-        arrtext[i].style.display = arr[i];
-    }
+    
 }
 
 function show_Saturday(country) {
@@ -148,17 +231,26 @@ function show_Saturday(country) {
     RemoveTable();
     InVisible();
 	InVisibleData();
+	InVisibleGalery();
+	InVisibleLog();
+	CleanImg();
     let arr = [];
-    if (country == "Italy") {
-        arr = ["none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "block", "block", "block", "none"];
-    } else {
-        arr = ["none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "block", "block", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none"];
-    }
+    if(country == "Italy"){		
+		for(let i =0;i < arrimg.length;i++){
+			if(arrimg[i].children[0].children[0].getAttribute('alt') == "Thursday_Italy"||arrimg[i].children[0].children[0].getAttribute('alt') == "Friday_Italy"){
+				arr.push(i);
+			}
+		}		
+	}else{
+		for(let i =0;i < arrimg.length;i++){
+			if(arrimg[i].children[0].children[0].getAttribute('alt') == "Thursday_Japan"||arrimg[i].children[0].children[0].getAttribute('alt') == "Friday_Japan"){
+				arr.push(i);
+			}
+		}	
+	}
+	ShowImg(arr);
 	AppendCrumbsDays("Saturday",country);
-    for (let i = 0; i < num; i++) {
-        arrimg[i].style.display = arr[i];
-        arrtext[i].style.display = arr[i];
-    }
+    
 }
 
 function show_Sunday(country) {
@@ -166,17 +258,26 @@ function show_Sunday(country) {
     RemoveTable();
     InVisible();
 	InVisibleData();
+	InVisibleGalery();
+	InVisibleLog();
+	CleanImg();
     let arr = [];
-    if (country == "Italy") {
-        arr = ["none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "block", "block", "block"];
-    } else {
-        arr = ["none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "block", "block", "none", "none", "none", "none", "none", "none", "none", "none"];
-    }
+    if(country == "Italy"){		
+		for(let i =0;i < arrimg.length;i++){
+			if(arrimg[i].children[0].children[0].getAttribute('alt') == "Sunday_Italy"||arrimg[i].children[0].children[0].getAttribute('alt') == "Saturday_Italy"){
+				arr.push(i);
+			}
+		}		
+	}else{
+		for(let i =0;i < arrimg.length;i++){
+			if(arrimg[i].children[0].children[0].getAttribute('alt') == "Sunday_Japan"||arrimg[i].children[0].children[0].getAttribute('alt') == "Saturday_Japan"){
+				arr.push(i);
+			}
+		}	
+	}
+	ShowImg(arr);
 	AppendCrumbsDays("Sunday",country);
-    for (let i = 0; i < num; i++) {
-        arrimg[i].style.display = arr[i];
-        arrtext[i].style.display = arr[i];
-    }
+    
 }
 
 
@@ -205,17 +306,14 @@ class Client {
         var restoredSession = {};
         if (JSON.parse(localStorage.getItem('session1') != null)){
             restoredSession = JSON.parse(localStorage.getItem('session1'));
-			//arrtmp.push(restoredSession);
 			for (let i =0;i < restoredSession.length;i++){
 				arrtmp.push(restoredSession[i]);
 			}
-			for(let i =0;i < this.buyerarr.length;i++){
-				arrtmp.push(this.buyerarr[i]);
-			}
+			arrtmp.push(this);
 			localStorage.setItem('session1',JSON.stringify(arrtmp));
         }
         else {
-            localStorage.setItem('session1',JSON.stringify(this.buyerarr));
+			localStorage.setItem('session1',JSON.stringify(this));
         }
         
         console.log(JSON.parse(localStorage.getItem('session1')));
@@ -224,9 +322,55 @@ class Client {
 }
 
 document.getElementById("ShowHistory").addEventListener("click",function(){
-	//JSON.parse(localStorage.getItem('session1'))
-	generate_table(JSON.parse(localStorage.getItem('session1')),0);
+	let tmparr = [];
+	let restoredSession = JSON.parse(localStorage.getItem('session1'));
+	for(let i =0;i < restoredSession.length;i++){
+			if(restoredSession[i].buyer_name == userName){
+				for(let j =0;j < restoredSession[i].buyerarr.length;j++){
+				tmparr.push(restoredSession[i].buyerarr[j]);
+				}
+			}
+	}
+	generate_table(tmparr,0);
 });
+
+
+document.getElementById("ShowGalary").addEventListener("click",function(){
+	RemoveTable();
+	InVisible();
+	document.getElementById("coreid").style.display = "none";
+	document.getElementById("galeryid").style.display = "block";
+	document.getElementById("crumbshome").innerHTML = "Home>>"+document.getElementById("ShowGalary").innerHTML;
+});
+
+document.getElementById("ShowSortPrice").addEventListener("click",function(){
+	/*if(document.getElementById("ShowSortPrice").getAttribute("value") == "ASC"){
+		document.getElementById("ShowSortPrice").setAttribute("value","DES");
+		document.getElementById("ShowSortPrice").innerHTML = "DES";
+	}
+	else if(document.getElementById("ShowSortPrice").getAttribute("value") == "DES"){
+		document.getElementById("ShowSortPrice").setAttribute("value","ASC");
+		document.getElementById("ShowSortPrice").innerHTML = "ASC";
+	}*/
+	if(document.getElementById("ShowSortPrice").innerHTML == "ASC"){
+		document.getElementById("ShowSortPrice").innerHTML = "DES";
+		
+	}
+	else if(document.getElementById("ShowSortPrice").innerHTML == "DES"){
+		document.getElementById("ShowSortPrice").innerHTML = "ASC";
+	}
+	
+	Sort(document.getElementById("ShowSortPrice").innerHTML);
+});
+
+document.getElementById("LogIn").addEventListener("click",function(){
+	RemoveTable();
+	InVisible();
+	document.getElementById("coreid").style.display = "none";
+	document.getElementById("logid").style.display = "block";
+	document.getElementById("crumbshome").innerHTML = "Home>>"+document.getElementById("LogIn").innerHTML;
+});
+
 
 document.getElementById("regbar-submit").addEventListener("click", function () {
     var Clientobj = new Client(document.getElementById("regbar-name").value, document.getElementById("regbar-address").value, document.getElementById("rtelephone").value);
@@ -245,8 +389,6 @@ class Basket{
 	}
 	getPrice() {
 	    this.totalPrice = 0;
-	    //this.arr.push(value);
-	    //this.totalPrice += parseFloat(value.price);
 	    for (let i = 0; i < BasketObject.arr.length; i++) {
 	        this.totalPrice += parseFloat(BasketObject.arr[i].price);
 	    }
@@ -254,10 +396,6 @@ class Basket{
 	}
 }
 var BasketObject = new Basket();
-
-
-
-
 
 function InVisible(){
 	let div = document.getElementById("regbarid");
@@ -281,7 +419,18 @@ function Visible(){
 }
 
 function InVisibleData(){
-	let div1 = document.getElementById("contactdataid")
+	let div1 = document.getElementById("contactdataid");
+	div1.style.display = "none";
+}
+
+
+function InVisibleGalery(){
+	let div1 = document.getElementById("galeryid");
+	div1.style.display = "none";
+}
+
+function InVisibleLog(){
+	let div1 = document.getElementById("logid");
 	div1.style.display = "none";
 }
 
@@ -299,7 +448,7 @@ function RemoveTable(){
 	}
 	
 }
-
+var countGoods = document.getElementById('counterPlus');
 function SubmitButtonPressed(idValue){
 	let Id = idValue;
 	let index = arrayOfButtons.indexOf(Id);
@@ -330,11 +479,10 @@ document.getElementById("bookButton").addEventListener("click",function(){
 
 function generate_table(massarr, addPrice) {
 	var body = document.getElementsByTagName("body")[0];
-	//document.getElementById("crumbshome").innerHTML = "Home>>Order";
 	RemoveTable();
 	Visible();
-	InVisibleContact();
-	
+	InVisibleContact();///??????
+	InVisibleLog();
 	var tbl = document.createElement("table");
 	tbl.id = "table1";
 	var tblBody = document.createElement("tbody");
@@ -367,9 +515,7 @@ function generate_table(massarr, addPrice) {
 	    checkbox.type = "checkbox";
 	    checkbox.checked = true;
 	    checkbox.id = i;
-	    // checkbox.onchange = ProductChecked(this);
 	    checkbox.onchange = function () { massarr.splice(0, 1); generate_table(massarr,1); document.getElementById("counterPlus").innerHTML -= 1; };
-	    //checkbox.setAttribute("onchange", ProductChecked(this));
 		cell2.appendChild(checkbox);
 		row.appendChild(cell2);
 		tblBody.appendChild(row);
@@ -383,7 +529,7 @@ function generate_table(massarr, addPrice) {
 		div.id = "div1";
 		var p = document.createElement("p");
 		
-		var cellText = document.createTextNode("Total price to insert = " +  BasketObject.getPrice());
+		cellText = document.createTextNode("Total price to insert = " +  BasketObject.getPrice());
 		p.appendChild(cellText);
 		div.appendChild(p);
 		
@@ -405,44 +551,48 @@ function show_menu(obj){
     RemoveTable();
     InVisible();
 	InVisibleData();
+	InVisibleGalery();
+	InVisibleLog();
+	CleanImg();
 	
+	let arr = [];
 	if(obj.id == "menu-pizzaid"){
-    let arr = ["block", "block", "block", "block", "none", "block", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none"];
-		for (let i = 0; i < num; i++) {
-			arrimg[i].style.display = arr[i];
-			arrtext[i].style.display = arr[i];
+		for(let i =0;i < arrimg.length;i++){
+			if(arrimg[i].getAttribute("title") == "0"){
+				arr.push(i);
+			}
 		}
 	}
 	if(obj.id == "menu-rolsid"){
-    let arr = ["none", "none", "none", "none", "none", "none", "none", "none", "block", "block", "block", "block", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none"];
-		for (let i = 0; i < num; i++) {
-			arrimg[i].style.display = arr[i];
-			arrtext[i].style.display = arr[i];
+    for(let i =0;i < arrimg.length;i++){
+			if(arrimg[i].getAttribute("title") == "1"){
+				arr.push(i);
+			}
 		}
 	}
 	if(obj.id == "menu-setsid"){
-	let arr = ["none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "block", "block", "block", "block", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none"];
-    //let arr = ["none", "none", "none", "none", "none", "none", "none", "none", "block", "block", "block", "block", "block", "block", "block", "block", "block", "block", "block", "block", "none", "none", "none", "none", "none", "none", "none", "none"];
-		for (let i = 0; i < num; i++) {
-			arrimg[i].style.display = arr[i];
-			arrtext[i].style.display = arr[i];
+	for(let i =0;i < arrimg.length;i++){
+			if(arrimg[i].getAttribute("title") == "2"){
+				arr.push(i);
+			}
 		}
 	}
 	if(obj.id == "menu-grill"){
-    let arr = ["none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "block", "block", "block", "none", "none", "none", "none", "block"];
-		for (let i = 0; i < num; i++) {
-			arrimg[i].style.display = arr[i];
-			arrtext[i].style.display = arr[i];
+    
+		for(let i =0;i < arrimg.length;i++){
+			if(arrimg[i].getAttribute("title") == "3"){
+				arr.push(i);
+			}
 		}
 	}
 	if(obj.id == "menu-lunch"){
-	let arr = ["none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "block", "block", "block", "block", "none", "none", "none", "none", "none", "none", "none", "none"];
-    //let arr = ["block", "none", "block", "block", "block", "block", "block", "block", "block", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none"];
-		for (let i = 0; i < num; i++) {
-			arrimg[i].style.display = arr[i];
-			arrtext[i].style.display = arr[i];
+		for(let i =0;i < arrimg.length;i++){
+			if(arrimg[i].getAttribute("title") == "4"){
+				arr.push(i);
+			}
 		}
 	}
+	ShowImg(arr);
 	AppendCrumbs(obj);
 }
 
@@ -451,12 +601,85 @@ function AppendCrumbs(obj){
 }
 
 
+
+document.getElementById("buttonregformid").addEventListener("click",function(){
+	let name = document.getElementById("logformid").value;
+	let passwordname = document.getElementById("passwordformid").value;
+	let res = [];
+	let tmp = [];
+	let parsetmp = [];
+	let ok = true;
+	let parsearr = JSON.parse(localStorage.getItem("session2"));
+	if(parsearr != null){
+		for(let i =0;i < parsearr.length;i++){
+		if(parsearr[i][0] == name){
+			ok = false;
+			break;
+		}
+	}
+	}
+	if(ok){
+		if(parsearr!= null){
+			for(let i = 0;i < parsearr.length;i++){
+				tmp.push(parsearr[i]);
+			}
+		}
+		res.push(name);
+		res.push(passwordname);
+		tmp.push(res);
+		localStorage.setItem("session2",JSON.stringify(tmp));
+	}
+	else{
+		document.getElementById("logformid").value = "";
+		document.getElementById("passwordformid").value = "";
+		alert("user with given password and name already exists");
+	}
+});
+
+var userName = "";
+
+document.getElementById("buttonlogformid").addEventListener("click",function(){
+	let identity = [];
+	let name = document.getElementById("logformid").value;
+	let passwordname = document.getElementById("passwordformid").value;
+	if(JSON.parse(localStorage.getItem("session2")) != null){
+		identity = JSON.parse(localStorage.getItem("session2"));
+		for(let i =0;i < identity.length;i++){
+			if(name == identity[i][0] && passwordname == identity[i][1]){
+				userName = identity[i][0];
+				document.getElementById("LogIn").innerHTML = userName;
+				document.getElementById("ShowHistory").style.display = "block";
+				document.getElementById("LogOut").style.display = "block";
+				ReturnStartPage();
+				break;
+			}
+		}
+	}
+	if(userName == ""){
+		document.getElementById("logformid").value = "";
+		document.getElementById("passwordformid").value = "";
+		alert("Consider creating new account");
+	}
+	
+	
+});
+
+document.getElementById("LogOut").addEventListener("click",function(){
+	document.getElementById("LogIn").innerHTML = "Log In";
+	document.getElementById("ShowHistory").style.display = "none";
+	document.getElementById("LogOut").style.display = "none";
+	userName = "";
+	
+});
+
 function ReturnStartPage(){
 	InVisible();
 	RemoveTable();
 	InVisibleData();
+	InVisibleGalery();
+	InVisibleLog();
 	document.getElementById("coreid").style.display = "block";
-	document.getElementById("idimage-tabs").style.display = "none";
+	CleanImg();
 	document.getElementById("crumbshome").innerHTML = "Home>>";
 }
 
@@ -494,7 +717,7 @@ function changeSlide(index)
 
 window.onload =  function() {
 	let ii=1;
-	setInterval(function(){ii = (ii % 5) + 1;document.getElementById("switch"+ii).checked = "true";changeSlide(ii)},3000);
+	setInterval(function(){ii = (ii % 5) + 1;document.getElementById("switch"+ii).checked = "true";changeSlide(ii);},3000);
 	
 };
 
@@ -505,13 +728,54 @@ document.getElementById("buttonid").addEventListener("click",function(){
 	RemoveTable();
 	InVisible();
 	InVisibleData();
+	InVisibleGalery();
+	InVisibleLog();
+	ClearPicPac();
+	let picpackelem = document.getElementById("picpackid");
 	document.getElementById("coreid").style.display = "block";
-	for(let i=1;i <=num;i++){
-		if(((document.getElementById("productname"+i).innerHTML).toUpperCase()).indexOf(searchText) != -1){
-			//console.log(document.getElementById("productname"+i).innerHTML);
-			
-			document.getElementById("idblock"+i).style.display = "block";
-			document.getElementById("mi"+i).style.display = "block";
+	
+	for(let i=0;i <arrimg.length;i++){
+			if(((arrimg[i].children[1].children[0].children[0].innerText).toUpperCase()).indexOf(searchText) != -1){
+				picpackelem.appendChild(arrimg[i]);
 		}
 	}
+	for(let i=0;i <picpackelem.children.length;i++){
+		picpackelem.children[i].children[1].style.display = "block";
+		picpackelem.children[i].style.display = "block";
+	}
+	
+	Sort(document.getElementById("ShowSortPrice").innerHTML);
+});
+
+
+document.getElementById("gal2im1").addEventListener("click",function(){
+	document.getElementById("gal1im1").src = "Picture/img2.png";
+});
+
+document.getElementById("gal2im2").addEventListener("click",function(){
+	document.getElementById("gal1im1").src = "Picture/img3.png";
+});
+
+document.getElementById("gal2im3").addEventListener("click",function(){
+	document.getElementById("gal1im1").src = "Picture/img4.png";
+});
+
+document.getElementById("gal2im4").addEventListener("click",function(){
+	document.getElementById("gal1im1").src = "Picture/img5.png";
+});
+
+document.getElementById("gal2im5").addEventListener("click",function(){
+	document.getElementById("gal1im1").src = "Picture/img6.png";
+});
+
+document.getElementById("gal2im6").addEventListener("click",function(){
+	document.getElementById("gal1im1").src = "Picture/img19.png";
+});
+
+document.getElementById("gal2im7").addEventListener("click",function(){
+	document.getElementById("gal1im1").src = "Picture/img11.png";
+});
+
+document.getElementById("gal2im8").addEventListener("click",function(){
+	document.getElementById("gal1im1").src = "Picture/img12.png";
 });
