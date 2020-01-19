@@ -8,6 +8,7 @@
 		display:none;
 	}
 	
+	
 	.block1,.block2,.block3,.block4,.block5,.block6,.block7,.block8,.block9,.block10,.block11,.block12,.block13,.block14,.block15,.block16,.block17,.block18,.block19,.block20,.block21,.block22,.block23,.block24,.block25,.block26,.block27,.block28{
 	width: 60%;
 	box-shadow: 0 0 15px rgba(0,0,0,.1);
@@ -40,13 +41,14 @@
 .search{
 	display:flex;
 	flex-direction:row;
-	padding: 30px 10px;
-	
+	padding: 30px 5px;
+	background-color: white;
+	height: 30px;
 }
 
 .title{
 	width:100%;
-	background-color:black;
+	background-color:white;
 	height:auto;
 }
 
@@ -63,8 +65,9 @@
 }
 
 .navbar {
+	background-color: white;
   overflow: hidden;
-  background-color: #333; 
+  background-color: white; 
 }
 
 .navbar a {
@@ -74,11 +77,15 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+      background-color: black;
+    margin-right: 2px;
 }
 
 .subnav {
   float: left;
   overflow: hidden;
+  margin-right: 2px;
+    background-color: black;
 }
 
 .subnav .subnavbtn {
@@ -100,7 +107,7 @@
   display: none;
   position: absolute;
   left: 0;
-  background-color: red;
+  background-color: white;
   width: 100%;
   z-index: 5;
 }
@@ -165,6 +172,7 @@
 .order{
 	display:flex;
 	flex-direction:row;
+	    background-color: white;
 }
 
 .order-left{
@@ -178,7 +186,7 @@
 }
 
 .order-img i,.order-img p{
-	color:white;
+	color:black;
 	z-index:2;
 }
 
