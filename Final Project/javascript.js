@@ -668,6 +668,7 @@ document.getElementById("LogOut").addEventListener("click",function(){
 	document.getElementById("LogIn").innerHTML = "Log In";
 	document.getElementById("ShowHistory").style.display = "none";
 	document.getElementById("LogOut").style.display = "none";
+	ReturnStartPage();
 	userName = "";
 	
 });
