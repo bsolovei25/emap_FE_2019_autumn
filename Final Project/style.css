@@ -9,14 +9,33 @@
 	}
 	
 	
-	.block1,.block2,.block3,.block4,.block5,.block6,.block7,.block8,.block9,.block10,.block11,.block12,.block13,.block14,.block15,.block16,.block17,.block18,.block19,.block20,.block21,.block22,.block23,.block24,.block25,.block26,.block27,.block28{
+	/*.block1,.block2,.block3,.block4,.block5,.block6,.block7,.block8,.block9,.block10,.block11,.block12,.block13,.block14,.block15,.block16,.block17,.block18,.block19,.block20,.block21,.block22,.block23,.block24,.block25,.block26,.block27,.block28{
 	width: 60%;
 	box-shadow: 0 0 15px rgba(0,0,0,.1);
 	border-radius: 25px;
 	padding: 10px;
     font-family: "Open Sans,sans-serif";
 	resize: both;
+}*/
+
+.block1,.block2,.block3,.block4,.block5,.block6,.block17,.block18,.block19,.block20,.block21,.block22,.block23,.block24,.block25,.block26,.block27,.block28{
+	width: 40%;
+	box-shadow: 0 0 15px rgba(0,0,0,.1);
+	border-radius: 25px;
+	padding: 10px;
+    font-family: "Open Sans,sans-serif";
+	resize: both;
 }
+
+.block7,.block8,.block9,.block10,.block11,.block12,.block13,.block14,.block15,.block16{
+	width: 80%;
+	box-shadow: 0 0 15px rgba(0,0,0,.1);
+	border-radius: 25px;
+	padding: 10px;
+    font-family: "Open Sans,sans-serif";
+	resize: both;
+}
+
 	
 .choose-menu ul{
 	display:flex;
