@@ -261,6 +261,12 @@ function show_Sunday(country) {
 	InVisibleGalery();
 	InVisibleLog();
 	CleanImg();
+	
+	
+	InVisibleContact();
+	
+	
+	
     let arr = [];
     if(country == "Italy"){		
 		for(let i =0;i < arrimg.length;i++){
@@ -337,21 +343,20 @@ document.getElementById("ShowHistory").addEventListener("click",function(){
 
 document.getElementById("ShowGalary").addEventListener("click",function(){
 	RemoveTable();
+	InVisibleContact();
 	InVisible();
+	InVisibleData();
+	InVisibleGalery();
+	InVisibleLog();
+	CleanImg();
+	
+	
 	document.getElementById("coreid").style.display = "none";
 	document.getElementById("galeryid").style.display = "block";
 	document.getElementById("crumbshome").innerHTML = "Home>>"+document.getElementById("ShowGalary").innerHTML;
 });
 
 document.getElementById("ShowSortPrice").addEventListener("click",function(){
-	/*if(document.getElementById("ShowSortPrice").getAttribute("value") == "ASC"){
-		document.getElementById("ShowSortPrice").setAttribute("value","DES");
-		document.getElementById("ShowSortPrice").innerHTML = "DES";
-	}
-	else if(document.getElementById("ShowSortPrice").getAttribute("value") == "DES"){
-		document.getElementById("ShowSortPrice").setAttribute("value","ASC");
-		document.getElementById("ShowSortPrice").innerHTML = "ASC";
-	}*/
 	if(document.getElementById("ShowSortPrice").innerHTML == "ASC"){
 		document.getElementById("ShowSortPrice").innerHTML = "DES";
 		
@@ -467,6 +472,8 @@ function generate_info(){
 	
 	RemoveTable();
 	InVisible();
+	InVisibleLog();
+	InVisibleGalery();
 	document.getElementById("coreid").style.display = "none";
 	document.getElementById("contactdataid").style.display = "block";
 	document.getElementById("crumbshome").innerHTML = "Home>>"+document.getElementById("contactButton").innerHTML;
@@ -490,14 +497,16 @@ function generate_table(massarr, addPrice) {
 	var thtext1 = document.createTextNode("Product name");
 	var rowth2 = document.createElement("th");
 	var thtext2 = document.createTextNode("Price");
-	var rowth3 = document.createElement("th");
-	var thtext3 = document.createTextNode("Checkbox");
 	rowth1.appendChild(thtext1);
 	rowth2.appendChild(thtext2);
-	rowth3.appendChild(thtext3);
 	tblBody.appendChild(rowth1);
 	tblBody.appendChild(rowth2);
+	if (addPrice != 0){
+	var rowth3 = document.createElement("th");
+	var thtext3 = document.createTextNode("Checkbox");
+	rowth3.appendChild(thtext3);
 	tblBody.appendChild(rowth3);
+	}
 	for (var i = 0; i < massarr.length; i++) {
 	    var row = document.createElement("tr");
 		row.id = "rowid";
@@ -510,14 +519,17 @@ function generate_table(massarr, addPrice) {
 	    row.appendChild(cell);
 	    cell1.appendChild(cellText1);
 	    row.appendChild(cell1);
-	    var cell2 = document.createElement("td");
-	    var checkbox = document.createElement("input");
-	    checkbox.type = "checkbox";
-	    checkbox.checked = true;
-	    checkbox.id = i;
-	    checkbox.onchange = function () { massarr.splice(0, 1); generate_table(massarr,1); document.getElementById("counterPlus").innerHTML -= 1; };
-		cell2.appendChild(checkbox);
-		row.appendChild(cell2);
+	    
+		if (addPrice != 0){
+			var cell2 = document.createElement("td");
+			var checkbox = document.createElement("input");
+			checkbox.type = "checkbox";
+			checkbox.checked = true;
+			checkbox.id = i;
+			checkbox.onchange = function () { massarr.splice(parseInt(this.id), 1); generate_table(massarr,1); document.getElementById("counterPlus").innerHTML -= 1; };
+			cell2.appendChild(checkbox);
+			row.appendChild(cell2);
+		}
 		tblBody.appendChild(row);
 	}
 	
